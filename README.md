@@ -9,7 +9,7 @@ mostrará las distintas ofertas de trabajo disponibles.
 
 ## Herramientas de trabajo
 
-Inicialmente se plantea desarrollar una API Restful utilizando el lenguaje no tipado python.
+Inicialmente se plantea desarrollar una API Restful utilizando el lenguaje python.
 Se ha elegido python por la gran cantidad de librerias y facilidades que ofrece el lenguaje así por la sencillez.
 
 
