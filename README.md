@@ -1,5 +1,4 @@
 # Job Finder and IT recruitment
-
 This project aims on the IT world, helping people to find a proper job and companys to hire developers and IT profesionals.
 
 ## How it works?
@@ -30,7 +29,7 @@ Coming soon.
 
 Víctor Moreno Jiménez – victormoreno@correo.ugr.es
 
-Distributed under the GNU license. See ``LICENSE`` for more information.
+Distributed under the GNU General Public License v3.0 license. See ``LICENSE`` for more information.
 
 [https://github.com/VictorMorenoJimenez/github-link](https://github.com/VictorMorenoJimenez/)
 
