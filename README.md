@@ -6,6 +6,9 @@ and as company you can post job offers.
 ## Objective
 With the help of a micro framework, we will build a REST API to make easier the access and treatment of data.
 
+## Why this project?
+This project emerges as a personal challenge to develop a complete web service. This microservice will be part of a complete web service in which people linked to the IT world can look for work as well as promote themselves.
+
 ## Tool belt
 * [Flask](https://palletsprojects.com/p/flask/): micro framework.
 * [Python](https://www.python.org/):Flask is based on python.
