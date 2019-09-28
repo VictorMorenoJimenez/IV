@@ -1,0 +1,5 @@
+languaje: python
+python:
+        - "3.7"
+cache: pip3
+script: python3 --version
