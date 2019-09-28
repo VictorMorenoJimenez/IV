@@ -1,8 +1,0 @@
-languaje: python
-python:
-        - "3.7"
-cache: pip
-install:
-        - python3 -m install python-logilab-common
-script: pytest
-
