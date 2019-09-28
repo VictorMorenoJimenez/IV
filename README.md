@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/VictorMorenoJimenez/IV.svg?branch=master)](https://travis-ci.org/VictorMorenoJimenez/IV)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # Job Finder and IT recruitment
 The idea of this project is focused on the IT world, helping people to find a proper job and companys to hire developers and IT profesionals.
 Specifically, this project consists on creating a microservice to manage job offers. As a developer you can insert a job profile
