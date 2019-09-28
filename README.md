@@ -1,13 +1,20 @@
 # Job Finder and IT recruitment
-This project aims on the IT world, helping people to find a proper job and companys to hire developers and IT profesionals.
+The idea of this project is focused on the IT world, helping people to find a proper job and companys to hire developers and IT profesionals.
+Specifically, this project consists on creating a microservice to manage job offers. As a developer you can insert a job profile
+and as company you can post job offers.
 
-## How it works?
-As a job finder, you can search your job with some filters like country or technologies.
-As a IT recruiter or IT company you can post your job offers.
+## Objective
+With the help of a micro framework, we will build a REST API to make easier the access and treatment of data.
 
-## Stack
-This project is with Django framework, frontend and backend and MySQL for database.
-Tools version coming soon.
+## Tool belt
+* [Flask](https://palletsprojects.com/p/flask/): micro framework.
+* [Python](https://www.python.org/):Flask is based on python.
+* [MariaDB](https://mariadb.org/): Database. 
+* [Fluentd](https://www.fluentd.org/): For logging.
+* [Travis CI](https://travis-ci.org/): Continuous integration.
+* [Heroku](https://www.heroku.com/): Deployment, Manage and Scale.
+
+*Tools version coming soon*.
 
 ## Installation
 Coming soon.
