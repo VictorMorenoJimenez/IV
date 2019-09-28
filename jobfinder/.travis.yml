@@ -1,0 +1,10 @@
+languaje: python
+python:
+        - "3.7"
+cache: pip
+before_install:
+        - source venv/bin/activate
+install:
+        - pip3 install pytest
+script: pytest
+
