@@ -18,9 +18,12 @@ This project emerges as a personal challenge to develop a complete web service. 
 * [MariaDB](https://mariadb.org/): Database. 
 * [Fluentd](https://www.fluentd.org/): For logging.
 * [Travis CI](https://travis-ci.org/): Continuous integration.
-* [Heroku](https://www.heroku.com/): Deployment, Manage and Scale.
 
 *Tools version coming soon*.
+
+# Deployment
+* [Heroku](https://www.heroku.com/): Deployment, Manage and Scale.
+* [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.
 
 ## Installation
 *Coming soon*.
