@@ -1,16 +1,19 @@
 [![Build Status](https://travis-ci.org/VictorMorenoJimenez/IV.svg?branch=master)](https://travis-ci.org/VictorMorenoJimenez/IV)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-# Job Finder and IT recruitment
-The idea of this project is focused on the IT world, helping people to find a proper job and companys to hire developers and IT profesionals.
-Specifically, this project consists on creating a microservice to manage job offers. As a developer you can insert a job profile
-and as company you can post job offers.
+# Free day
+Free day is a free software project that aims to create a microservice with which to know the holidays of different parts of the world.
 
 ## Objective
-With the help of a micro framework, we will build a REST API to make easier the access and treatment of data.
+We will build a REST API to make easier to know if it's holidays in any part of the world.
+The idea is that anyone can post the holidays day their country, state or city.
 
 ## Why this project?
-This project emerges as a personal challenge to develop a complete web service. This microservice will be part of a complete web service in which people linked to the IT world can look for work as well as promote themselves.
+I've been thinking and looking around and there's nothing like Free day. Let's say you are building a service that needs to know
+if it's holiday on the country that it's running for some purpose. You don't need to hardcode the holidays, just use an API and get the holidays
+of any part of the world: country, state or city. And the fact that anyone can contribute makes. Very usefull for the interational commerce.
+Free day unique and with a great growing potential.
+
 
 ## Tool belt
 * [Flask](https://palletsprojects.com/p/flask/): micro framework.
