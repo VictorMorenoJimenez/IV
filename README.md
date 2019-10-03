@@ -16,12 +16,11 @@ Free day unique and with a great growing potential.
 
 
 ## Tool belt
-* [Flask](https://palletsprojects.com/p/flask/): micro framework.
-* [Python](https://www.python.org/):Flask is based on python.
-* [MariaDB](https://mariadb.org/): Database. 
+* [Node](https://nodejs.org/es/): server side.
+* [Redis](https://redis.io/): Database. 
 * [Fluentd](https://www.fluentd.org/): For logging.
 * [Travis CI](https://travis-ci.org/): Continuous integration.
-
+* [Karma](https://karma-runner.github.io/latest/index.html): Test runner.
 *Tools version coming soon*.
 
 # Deployment
@@ -35,29 +34,6 @@ Free day unique and with a great growing potential.
 *Coming soon*.
 
 ## Development setup
-### Flask install
-First of all, we will install the python dependencies following the installation tips from [flask official website](https://flask.palletsprojects.com/en/1.1.x/installation/#installation).
-Supossing you are using a debian based distro: (If you are using a differente Linux distro, check the link above).
-
-```bash
-	sudo apt-get install python3-venv	
-```
-When working with a python project, we use virtual environments to manage the dependencies. That way you can isolate projects with their own dependencies.
-
-* Create an enviorment
-```bash
-	mkdir projectname
-	cd projectname
-	python3 -m venv venv
-```
-
-That will create a new folder venv on the root folder of your project. After that we can activate the virtualenv and install dependencies.
-In this case, at the very first stage, we will install flask.
-
-```bash
-	pip install Flask
-```
-
 *Coming soon.*
 
 ## Release History
