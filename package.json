@@ -1,0 +1,36 @@
+{
+  "name": "app",
+  "version": "0.0.2",
+  "description": "REST API to handle holidays around the world",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./app/app.js",
+    "start": "node ./app/app.js",
+    "test-init": "./node_modules/jasmine/bin/jasmine.js init",
+    "test": "./node_modules/jasmine/bin/jasmin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorMorenoJimenez/IV.git"
+  },
+  "keywords": [
+    "free_day",
+    "api_rest"
+  ],
+  "author": "Victor Moreno Jimenez",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/VictorMorenoJimenez/IV/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.3",
+    "nodemon": "^1.19.3"
+  },
+  "homepage": "https://github.com/VictorMorenoJimenez/IV#readme",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
