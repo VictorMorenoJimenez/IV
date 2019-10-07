@@ -16,7 +16,7 @@ Free day unique and with a great growing potential.
 
 
 ## Tool belt
-You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/toolbelt.md):
+You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/toolbelt.md)
 
 # Deployment
 * [Heroku](https://www.heroku.com/): Deployment, Manage and Scale.
