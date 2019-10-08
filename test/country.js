@@ -14,11 +14,11 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe('Country', () => {
-    beforeEach((done) => { 
+    /*beforeEach((done) => { 
         //TODO
         console.log("Running test");
         done();                  
-    });
+    });*/
 
   describe('GET /country', () => {
       it('should get all the countries of database', (done) => {
@@ -34,7 +34,7 @@ describe('Country', () => {
 
 });
 
-describe('Country', () => {
+/*describe('Country', () => {
     beforeEach((done) => { 
         //TODO
         console.log("Running test");
@@ -44,13 +44,15 @@ describe('Country', () => {
   describe('POST /country/new', () => {
       it('should create new country', (done) => {
         chai.request(server)
-            .get('/country')
+            .post('/country')
+            .send(country)
             .end((err, res) => {
                   res.should.have.status(200);
-                  res.body.should.be.a('array');
+                  res.body.should.be.a('object');
+                  //res.body.should.be.a('array');
               done();
             });
       });
   });
 
-});
+});*/
