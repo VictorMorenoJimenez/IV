@@ -7,8 +7,8 @@ const state = require("./routes/state");
 const city = require("./routes/city");
 let config = require('config');
 let morgan = require('morgan');
-
-require('dotenv/config');                                   
+const { port, host, dbhost } = require('../config/config');
+                               
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));
@@ -41,7 +41,7 @@ const options = {
 };
 
 //db connection      
-mongoose.connect(config.DBHost, options);
+mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -49,11 +49,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 if(config.util.getEnv('NODE_ENV') !== 'test') {
   app.use(morgan('combined')); 
 }
-
-
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
 
 
 app.get("/", (req, res) => res.json({message: "Welcome to our FreedayAPI!"}));
@@ -85,6 +80,6 @@ app.route("/city/new")
 
 
 app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+console.log(`Running on http://${host}:${port}`);
 
 module.exports = app;
