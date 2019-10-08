@@ -5,9 +5,12 @@ const bodyParser = require('body-parser');
 const country = require("./routes/country");
 const state = require("./routes/state");
 const city = require("./routes/city");
+const port = 8080;
+const host = '0.0.0.0';
 let config = require('config');
 let morgan = require('morgan');
-const { port, host, dbhost } = require('../config/config');
+const dotenv = require('dotenv');
+dotenv.config();
                                
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
@@ -41,14 +44,17 @@ const options = {
 };
 
 //db connection      
+if( process.env.NODE_ENV == 'test'){
+  dbhost = process.env.DBHost_test;
+}
+else{
+  dbhost = process.env.DBHost;
+}
+
+
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-
-//don't show the log when it is test
-if(config.util.getEnv('NODE_ENV') !== 'test') {
-  app.use(morgan('combined')); 
-}
 
 
 app.get("/", (req, res) => res.json({message: "Welcome to our FreedayAPI!"}));
@@ -78,8 +84,7 @@ app.route("/city")
 app.route("/city/new")
   .post(city.newCity);
 
-
-app.listen(PORT, HOST);
+app.listen(port, host);
 console.log(`Running on http://${host}:${port}`);
 
 module.exports = app;
