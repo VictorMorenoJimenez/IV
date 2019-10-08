@@ -55,6 +55,7 @@ function newCountryHoliday(req, res) {
  * POST /country/new, make a new country.
  */
 function newCountry(req, res) {
+    //TODO validate
     var newCountry = new Country(req.body);
 
     //Store on DB
