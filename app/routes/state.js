@@ -44,7 +44,7 @@ function newState(req, res) {
         if(err){
             res.send(err);
         }else{
-            res.json({message: "State successfully added!", state})
+            res.status(201).json({message: "State successfully added!", state})
         }
         
     });

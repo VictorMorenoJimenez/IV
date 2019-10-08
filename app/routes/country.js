@@ -45,9 +45,7 @@ function getCountryHolidays(req, res) {
 function newCountryHoliday(req, res) {
     var newHoliday = req.body;
     country = req.params.country_name;
-
-    console.log(country);
-    Country.find().where('name').equals(country);
+    //TODO
     
 }
 
@@ -63,7 +61,7 @@ function newCountry(req, res) {
         if(err){
             res.send(err);
         }else{
-            res.json({message: "Country successfully added!", country})
+            res.status(201).json({message: "Country successfully added!", country})
         }
     });
 }

@@ -44,7 +44,7 @@ function newCity(req, res) {
         if(err){
             res.send(err);
         }else{
-            res.json({message: "City successfully added!", city})
+            res.status(201).json({message: "City successfully added!", city})
         }
         
     });
