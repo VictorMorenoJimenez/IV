@@ -41,7 +41,7 @@ describe('Country', () => {
             .post('/country/new')
             .send(n_country)
             .end((err, res) => {
-                  res.should.have.status(200);
+                  res.should.have.status(201);
                   res.body.should.have.property('message')
                   .eql('Country successfully added!');
               done();
