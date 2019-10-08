@@ -11,6 +11,9 @@ let config = require('config');
 let morgan = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
+var dbhost;
+var test_user=process.env.TESTUSER;
+var test_password=process.env.TESTPASSWORD;
                                
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
@@ -44,13 +47,11 @@ const options = {
 };
 
 //db connection      
-if( process.env.NODE_ENV == 'test'){
-  dbhost = process.env.DBHost_test;
-}
-else{
+if( process.env.NODE_ENV != 'test'){
   dbhost = process.env.DBHost;
+}else{
+  dbhost = `mongodb+srv://${test_user}:${test_password}@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority`;
 }
-
 
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
@@ -67,6 +68,9 @@ app.route("/country")
 
 app.route("/country/new")
   .post(country.newCountry);
+
+  app.route("/country/:country_name")
+  .post(country.newCountryHoliday);
 
 //State
 //Get all states
