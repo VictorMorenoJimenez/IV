@@ -4,7 +4,7 @@
   "description": "REST API to handle holidays around the world",
   "main": "app.js",
   "scripts": {
-    "start": "SET NODE_ENV=dev && node ./app/app/js",
+    "start": "node app/app.js",
     "test": "mocha --timeout 10000"
   },
   "repository": {
