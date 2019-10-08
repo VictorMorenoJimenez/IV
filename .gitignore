@@ -88,9 +88,6 @@ public
 # vuepress build output
 .vuepress/dist
 
-#venv
-.venv
-
 # Serverless directories
 .serverless/
 
