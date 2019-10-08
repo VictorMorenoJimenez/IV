@@ -50,7 +50,7 @@ const options = {
 if( process.env.NODE_ENV != 'test'){
   dbhost = process.env.DBHost;
 }else{
-  dbhost = `mongodb+srv://${test_user}:${test_password}@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority`;
+  dbhost = `mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority`;
 }
 
 mongoose.connect(dbhost, options);
