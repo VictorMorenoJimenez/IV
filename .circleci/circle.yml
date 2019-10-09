@@ -1,8 +1,0 @@
-machine:
-  node:
-    # Circle will use node v12.0.0
-    version: 12.10.0
-
-test:
-  override:
-    - npm test
