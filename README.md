@@ -40,9 +40,12 @@ Check the test framework and library used for testing [here](https://github.com/
 ## Tool belt
 You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/toolbelt.md)
 
-# Deployment
+## Deployment
 * [Heroku](https://www.heroku.com/): Deployment, Manage and Scale.
 * [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.
+
+## Continuous Integration
+For continuous we choosed Travis CI. You can check more information [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/travisci.md).
 
 ## Usage example
 *Coming soon*.
