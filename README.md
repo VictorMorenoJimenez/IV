@@ -33,6 +33,8 @@ To run the server
 ```JavaScript
     npm start
 ```
+## APi Design
+Check your API endpoints [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/apidesign.md). and user stories [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/userstories.md).
 
 ## Test Framework
 Check the test framework and library used for testing [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/testools.md).
