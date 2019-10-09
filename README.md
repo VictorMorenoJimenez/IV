@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/VictorMorenoJimenez/IV.svg?branch=master)](https://travis-ci.org/VictorMorenoJimenez/IV)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CircleCI](https://circleci.com/gh/VictorMorenoJimenez/IV.svg?style=svg)](https://circleci.com/gh/VictorMorenoJimenez/IV)
 
 # Free day
 Free day is a free software project that aims to create a microservice with which to know the holidays of different parts of the world.
