@@ -1,8 +1,8 @@
-## API Design
+# API Design
 
 First aproach to the API Design, only GET and POST methods for now.
 
-# GET endpoints
+## GET endpoints
 
 **GET /country** - get the holidays from all countries. \
 **GET /country/:name** - get the holidays from the country named :name. \
@@ -15,7 +15,7 @@ state state_name. \
 the country named country\_name. \
 **GET /state/:country_name/:state_name** - get the holidays from the state with name state\_name that belongs to country country\_name. \
 
-# POST endpoints
+## POST endpoints
 
 **POST /country/new** - Create new country. \
 **POST /country/:country_name** - Create new holiday for the country with name country\_name.\
