@@ -14,6 +14,28 @@ if it's holiday on the country that it's running for some purpose. You don't nee
 of any part of the world: country, state or city. And the fact that anyone can contribute makes. Very usefull for the interational commerce.
 Free day unique and with a great growing potential.
 
+## Install
+
+To install this project in your server and run it you just have to follow this steps:
+
+```git
+    git clone git@github.com:VictorMorenoJimenez/IV.git
+```
+
+To install all dependencies on package.json run:
+
+```JavaScript
+    npm install
+```
+
+To run the server 
+
+```JavaScript
+    npm start
+```
+
+## Test Framework
+Check the test framework and library used for testing [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/testools.md).
 
 ## Tool belt
 You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/toolbelt.md)
@@ -22,14 +44,11 @@ You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/ma
 * [Heroku](https://www.heroku.com/): Deployment, Manage and Scale.
 * [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.
 
-## Installation
-*Coming soon*.
-
 ## Usage example
 *Coming soon*.
 
 ## Development setup
-*Coming soon.*
+To set up a development envirorment and contribute you just have to follow the Install steps.
 
 ## Release History
 
@@ -37,6 +56,8 @@ You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/ma
     * Description of the project. 
 * 0.2
     * Description of the choosen framework and tools.
+* 0.3
+    * First API Development and Tests developed functionalities.
 
 ## Meta
 
