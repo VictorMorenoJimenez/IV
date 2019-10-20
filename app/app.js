@@ -7,7 +7,7 @@ const state = require("./routes/state");
 const city = require("./routes/city");
 const port = 8080;
 const host = '0.0.0.0';
-process.title = FreeDay;
+process.title = "FreeDay";
 let config = require('config');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -56,7 +56,7 @@ if( process.env.NODE_ENV != 'test'){
   dbhost = `mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority`;
 }
 
-dbhost = `mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority`;
+//dbhost = `mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority`;
 
 console.log(dbhost);
 mongoose.connect(dbhost, options);
