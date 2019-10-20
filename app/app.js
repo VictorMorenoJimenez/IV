@@ -8,7 +8,6 @@ const city = require("./routes/city");
 const port = 8080;
 const host = '0.0.0.0';
 let config = require('config');
-let morgan = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
 var dbhost;
