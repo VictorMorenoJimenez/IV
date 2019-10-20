@@ -4,7 +4,7 @@ This tool has been chosen given the simplicity with which it is integrated into 
 Once registered on its official website, you simply have to link your github and add the project in question to follow up.
 Then you have to add a .circleci directory with a config.yml file, which will use circle CI to launch the tests.
 
-So, the file .config/config.yml:
+So, the file .circleci/config.yml:
 
 ```yml
 version: 2
