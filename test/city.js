@@ -66,6 +66,26 @@ describe('City', () => {
     });
 });
 
+describe('PUT /city/:city_name', () => {
+  it('should create new holiday to city :city_name', (done) => {
+    let holidays = {
+      day: 1,
+      month: 1,
+      description: "Test holiday"
+    }
+
+    chai.request(server)
+        .put('/city/Ibiza')
+        .send(holidays)
+        .end((err, res) => {
+              res.should.have.status(201);
+              res.body.should.have.property('message')
+              .eql('Holiday successfully added to city');
+          done();
+        });
+  });
+});
+
   describe('GET /city', () => {
       it('should get all the cities of database', (done) => {
         chai.request(server)
@@ -85,6 +105,32 @@ describe('City', () => {
           .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
+            done();
+          });
+    });
+  });
+
+  describe('DELETE /city/:city_name', () => {
+    it('should delete the holidays given in POST of city city_name', (done) => {
+      let holidays = {
+        day: 1,
+        month: 1,
+        description: "Test holiday"
+      }
+      //First we create the holiday
+      chai.request(server)
+      .put('/city/Ibiza')
+      .send(holidays)
+      .end((err, res) => {
+            res.should.have.status(201);
+      });
+  
+      //Then we delete it
+      chai.request(server)
+          .delete('/city/Ibiza')
+          .send(holidays)
+          .end((err, res) => {
+                res.should.have.status(200);
             done();
           });
     });

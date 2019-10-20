@@ -72,6 +72,26 @@ describe('State', () => {
     });
 });
 
+describe('PUT /state/:state_name', () => {
+  it('should create new holiday to state :state_name', (done) => {
+    let holidays = {
+      day: 1,
+      month: 1,
+      description: "Test holiday"
+    }
+
+    chai.request(server)
+        .put('/state/Islas Baleares')
+        .send(holidays)
+        .end((err, res) => {
+              res.should.have.status(201);
+              res.body.should.have.property('message')
+              .eql('Holiday successfully added to state');
+          done();
+        });
+  });
+});
+
   describe('GET /state', () => {
       it('should get all the states of database', (done) => {
         chai.request(server)
@@ -93,6 +113,32 @@ describe('State', () => {
             done();
           });
     });
+});
+
+describe('DELETE /state/:state_name', () => {
+  it('should delete the holidays given in POST of state state_name', (done) => {
+    let holidays = {
+      day: 1,
+      month: 1,
+      description: "Test holiday"
+    }
+    //First we create the holiday
+    chai.request(server)
+    .put('/state/Islas Baleares')
+    .send(holidays)
+    .end((err, res) => {
+          res.should.have.status(201);
+    });
+
+    //Then we delete it
+    chai.request(server)
+        .delete('/state/Islas Baleares')
+        .send(holidays)
+        .end((err, res) => {
+              res.should.have.status(200);
+          done();
+        });
+  });
 });
 
 });
