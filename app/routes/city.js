@@ -22,19 +22,38 @@ function getCities(req, res) {
  */
 function getCityByName(req, res) {
     city = req.params.city_name;
-    // TODO no es la funcionalidad requerida.
+    let query = City.find({name: city}, {holidays: 1, _id: 0})
+
+    query.exec( (err, city) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }
+        res.status(200).json(city);
+    })
 
 }
 
 /**
- * POST /city/:city_name, create holiday on city :city_name 
+ * PUT /city/:city_name, create holiday on city :city_name 
  */
 function newCityHoliday(req, res) {
-    //TODO
+    var newHoliday = req.body;
+    city = req.params.city_name;
+    
+    let query = City.updateOne({name: city}, {$addToSet: {holidays: newHoliday, upsert: true}})
+
+    query.exec( (err, holidays) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }
+        res.status(200).json({message:"Holiday successfully added to city"});
+    })
 }
 
 /**
- * POST /city/new, create new city
+ * PUT /city/new, create new city
  */
 function newCity(req, res) {
     var newCity = new City(req.body);
@@ -50,4 +69,21 @@ function newCity(req, res) {
     });
 }
 
-module.exports = { getCityByName, newCityHoliday, newCity, getCities };
+/**
+ * DELETE /city/:city_name delete holiday from city
+ */
+function deleteHoliday(req, res) {
+    var city = req.params.city_name;
+    var n_description = req.body.description;
+    let query = City.updateOne({ 'name': city }, { '$pull': { holidays: { description: n_description }}})
+
+    query.exec( (err, holidays) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }
+        res.status(200).json({message:"Holiday removed successfully from city"});
+    })
+}
+
+module.exports = { getCityByName, newCityHoliday, newCity, getCities, deleteHoliday };

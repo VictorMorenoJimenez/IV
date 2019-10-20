@@ -47,17 +47,40 @@ const options = {
 
 //db connection      
 if( process.env.NODE_ENV != 'test'){
+  //production database
   dbhost = process.env.DBHost;
 }else{
+  //test database
   dbhost = `mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority`;
 }
 
+dbhost = `mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority`;
+
+console.log(dbhost);
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 
-app.get("/", (req, res) => res.json({message: "Welcome to our FreedayAPI!"}));
+app.get("/", (req, res) => res.status(200).json(
+    {
+      "status": "OK",
+      "example": {"route":"GET /country/Spain",
+      "value": {
+
+              "holidays": [
+                  {
+                      "_id": "5d9be3d16c384618bc4671e6",
+                      "day": 12,
+                      "month": 10,
+                      "description": "Dia de la Constitucion"
+                  }
+              ]
+          }
+      }
+    }
+  )
+);
 
 //Country
 
@@ -65,27 +88,57 @@ app.get("/", (req, res) => res.json({message: "Welcome to our FreedayAPI!"}));
 app.route("/country")
   .get(country.getCountries);
 
+// POST routes to Country
 app.route("/country/new")
-  .post(country.newCountry);
+  .put(country.newCountry);
 
-  app.route("/country/:country_name")
-  .post(country.newCountryHoliday);
+  // get all countries
+app.route("/country/:country_name")
+  .get(country.getCountryHolidays);
+
+// new holiday on country
+app.route("/country/:country_name")
+  .put(country.newCountryHoliday);
+
+app.route("/country/:country_name")
+    .delete(country.deleteHoliday);
+
 
 //State
 //Get all states
 app.route("/state")
   .get(state.getStates);
 
+app.route("/state/:state_name")
+  .get(state.getStatebyName);
+
 app.route("/state/new")
-  .post(state.newState);
+  .put(state.newState);
+
+// new holiday on state
+app.route("/state/:state_name")
+  .put(state.newStateHoliday);
+
+app.route("/state/:state_name")
+  .delete(state.deleteHoliday);
 
 //City
 //Get all cities
 app.route("/city")
   .get(city.getCities);
 
+app.route("/city/:city_name")
+  .get(city.getCityByName);
+
+  // new holiday on state
+app.route("/city/:city_name")
+.put(city.newCityHoliday);
+
 app.route("/city/new")
-  .post(city.newCity);
+  .put(city.newCity);
+
+app.route("/city/:city_name")
+  .delete(city.deleteHoliday);
 
 app.listen(port, host);
 console.log(`Running on http://${host}:${port}`);
