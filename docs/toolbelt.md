@@ -10,7 +10,6 @@ I wanted to learn a NoSQL tool. Also MongoDB has a big community behind, and tha
 * [Fluentd](https://www.fluentd.org/): Nowadays a logging system is essential for any kind of application. Fluentd allows you 
 to unify your data of your application. Every single service inside the application, logs to fluentd and fluentd manages and structures that data.
 Open source, ofcourse.
-* [Travis CI](https://travis-ci.org/): Continuous integration.
 * [Mocha](https://mochajs.org/): Testing JavaScript framework. Mocha is the most popular test tool for JavaScript. I`ve been trying some other alternatives like Jasmine but Mocha has proved to be simplest and more effective.
 * [Chai](https://www.chaijs.com/): Assertion Library. Fits good with Mocha.
 * [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.  Heroku is a cloud platform
