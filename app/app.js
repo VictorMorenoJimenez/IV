@@ -44,12 +44,9 @@ if( process.env.NODE_ENV != 'test'){
   dbhost = process.env.DBHost;
 }else{
   //test database
-  dbhost = `mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority`;
+  dbhost = process.env.DBHost_test;
 }
 
-//dbhost = `mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority`;
-
-console.log(dbhost);
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -120,12 +117,12 @@ app.route("/city")
 app.route("/city/:city_name")
   .get(city.getCityByName);
 
+app.route("/city/new")
+  .put(city.newCity);
+
   // new holiday on state
 app.route("/city/:city_name")
 .put(city.newCityHoliday);
-
-app.route("/city/new")
-  .put(city.newCity);
 
 app.route("/city/:city_name")
   .delete(city.deleteHoliday);
