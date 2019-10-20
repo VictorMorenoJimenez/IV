@@ -21,15 +21,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json'}));
 
 
-//Rutes
-/*const countryRoutes = require('../routes/country');
-const stateRoutes = require('../routes/state');
-const cityRoutes = require('../routes/city');
-
-app.use('/country', countryRoutes);
-app.use('/state', stateRoutes);
-app.use('/city', cityRoutes);*/
-
 // Common options
 const options = {
   useNewUrlParser: true,
