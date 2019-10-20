@@ -34,6 +34,10 @@ To run the server
 ```JavaScript
     npm start
 ```
+
+## Build 
+buildtool: package.json
+
 ## APi Design
 Check your API endpoints [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/apidesign.md). and user stories [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/userstories.md).
 
