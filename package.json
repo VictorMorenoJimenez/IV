@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app/app.js",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "stop": "pkill --signal SIGINT FreeDay"
   },
   "repository": {
     "type": "git",

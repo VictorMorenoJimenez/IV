@@ -7,12 +7,14 @@ const state = require("./routes/state");
 const city = require("./routes/city");
 const port = 8080;
 const host = '0.0.0.0';
+process.title = FreeDay;
 let config = require('config');
 const dotenv = require('dotenv');
 dotenv.config();
 var dbhost;
 var test_user=process.env.TESTUSER;
 var test_password=process.env.TESTPASSWORD;
+
                                
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
