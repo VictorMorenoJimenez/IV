@@ -1,0 +1,388 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "version": "1.0.0",
+    "title": "FreeDAy",
+    "description": "API docs for FreeDay project",
+    "contact": {
+      "name": "victormoreno@correo.ugr.es"
+    },
+    "license": {
+      "name": "GPLv3"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/api-docs",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/country": {
+      "get": {
+        "description": "Returns the info from all countries",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of countries.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/country/{country_name}": {
+      "get": {
+        "description": "Return the holidays from an specific country",
+        "produces": [
+          "application/json"
+        ],
+        "tag": "country",
+        "responses": {
+          "200": {
+            "description": "A list of holidays",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates a holiday on the country country_name",
+        "produces": [
+          "application/json"
+        ],
+        "tag": "country",
+        "responses": {
+          "201": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the holiday given on post body",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/country/new": {
+      "put": {
+        "description": "Returns all pets from the system that the user has access to",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pets.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/state": {
+      "get": {
+        "description": "Returns all the states",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of states.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/State"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/state/{state_name}": {
+      "get": {
+        "description": "Return the holidays from an specific country",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of holidays",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates a holiday on the country country_name",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the holiday given on post body",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/state/new": {
+      "put": {
+        "description": "Returns all pets from the system that the user has access to",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pets.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/city": {
+      "get": {
+        "description": "Returns all pets from the system that the user has access to",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pets.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/City"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/city/{city_name}": {
+      "get": {
+        "description": "Return the holidays from an specific country",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of holidays",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Creates a holiday on the country country_name",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the holiday given on post body",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Holiday"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/city/new": {
+      "put": {
+        "description": "Returns all pets from the system that the user has access to",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pets.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/City"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Country": {
+      "type": "object",
+      "required": [
+        "name",
+        "holidays",
+        "states"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "holidays": {
+          "type": "array"
+        },
+        "states": {
+          "type": "array"
+        }
+      }
+    },
+    "City": {
+      "type": "object",
+      "required": [
+        "name",
+        "holidays",
+        "state",
+        "country"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "holidays": {
+          "type": "array"
+        },
+        "states": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "Holiday": {
+      "type": "object",
+      "required": [
+        "day",
+        "month",
+        "description"
+      ],
+      "properties": {
+        "day": {
+          "type": "number"
+        },
+        "month": {
+          "type": "number"
+        },
+        "descripcion": {
+          "type": "string"
+        }
+      }
+    },
+    "State": {
+      "type": "object",
+      "required": [
+        "name",
+        "holidays",
+        "country",
+        "cities"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "holidays": {
+          "type": "array"
+        },
+        "country": {
+          "type": "string"
+        },
+        "cities": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}
