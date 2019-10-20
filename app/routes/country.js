@@ -44,7 +44,7 @@ function getCountryHolidays(req, res) {
 }
 
 /**
- * POST /country/:country_name, create holiday on country :country_name 
+ * PUT /country/:country_name, create holiday on country :country_name 
  */
 function newCountryHoliday(req, res) {
     var newHoliday = req.body;
@@ -63,7 +63,7 @@ function newCountryHoliday(req, res) {
 }
 
 /**
- * POST /country/new, make a new country.
+ * PUT /country/new, make a new country.
  */
 function newCountry(req, res) {
     //TODO validate

@@ -34,7 +34,7 @@ function getStatebyName(req, res) {
 }
 
 /**
- * POST /state/:state_name, create holiday on state :state_name 
+ * PUT /state/:state_name, create holiday on state :state_name 
  */
 function newStateHoliday(req, res) {
     var newHoliday = req.body;
@@ -52,7 +52,7 @@ function newStateHoliday(req, res) {
 }
 
 /**
- * POST /state/new, create new state
+ * PUT /state/new, create new state
  */
 function newState(req, res) {
     var newState = new State(req.body);
