@@ -47,6 +47,8 @@ if( process.env.NODE_ENV != 'test'){
   dbhost = process.env.DBHost_test;
 }
 
+dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
+
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
