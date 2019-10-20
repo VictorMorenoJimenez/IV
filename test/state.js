@@ -83,5 +83,16 @@ describe('State', () => {
             });
       });
   });
+  describe('GET /state/:state_name', () => {
+    it('should get all the holidays from state :state_name', (done) => {
+      chai.request(server)
+          .get('/state/Islas Baleares')
+          .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('array');
+            done();
+          });
+    });
+});
 
 });

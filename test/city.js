@@ -3,7 +3,7 @@
 process.env.NODE_ENV = 'test';
 
 let mongoose = require("mongoose");
-let State = require("../models/city");
+let City = require("../models/city");
 
 let chai = require("chai");
 let chaiHttp = require('chai-http');
@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 
 describe('City', () => {
   beforeEach((done) => { 
-    State.deleteOne({}, (err) => { 
+    City.deleteOne({}, (err) => { 
       done();           
    });      
   });
@@ -76,6 +76,18 @@ describe('City', () => {
               done();
             });
       });
+  });
+
+  describe('GET /city/:city_name', () => {
+    it('should get holidays from city :city_name', (done) => {
+      chai.request(server)
+          .get('/city/Ibiza')
+          .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('array');
+            done();
+          });
+    });
   });
 
 });

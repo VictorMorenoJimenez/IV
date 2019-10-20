@@ -48,7 +48,7 @@ function newCityHoliday(req, res) {
         if(err){
             res.send(err);
         }
-        res.status(200).json({message:"Holiday successfully added to city"});
+        res.status(201).json({message:"Holiday successfully added to city"});
     })
 }
 

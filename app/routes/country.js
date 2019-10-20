@@ -57,7 +57,7 @@ function newCountryHoliday(req, res) {
         if(err){
             res.send(err);
         }
-        res.status(200).json({message:"Holiday successfully added to country"});
+        res.status(201).json({message:"Holiday successfully added to country"});
     })
     
 }
@@ -91,8 +91,10 @@ function deleteHoliday(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            res.status(200).json({message:"Holiday removed successfully"});
         }
-        res.status(200).json({message:"Holiday removed successfully"});
+        
     })
 }
 
