@@ -20,7 +20,7 @@ describe('Country', () => {
    });      
   });
 
-  describe('POST /country/new', () => {
+  describe('PUT /country/new', () => {
       it('should create new country', (done) => {
         let n_country = {
           name: "Spain",
@@ -38,7 +38,7 @@ describe('Country', () => {
         }
 
         chai.request(server)
-            .post('/country/new')
+            .put('/country/new')
             .send(n_country)
             .end((err, res) => {
                   res.should.have.status(201);
@@ -49,7 +49,7 @@ describe('Country', () => {
       });
   });
 
-  describe('POST /country/new', () => {
+  describe('PUT /country/new', () => {
     it('should not create country without name', (done) => {
       let n_country = {
         states: [
@@ -59,7 +59,7 @@ describe('Country', () => {
       }
 
       chai.request(server)
-          .post('/country/new')
+          .put('/country/new')
           .send(n_country)
           .end((err, res) => {
                 res.body.should.have.property('message')

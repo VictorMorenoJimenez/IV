@@ -20,7 +20,7 @@ describe('City', () => {
    });      
   });
 
-  describe('POST /city/new', () => {
+  describe('PUT /city/new', () => {
       it('should create new city', (done) => {
         let n_city = {
           name: "Test City",
@@ -36,7 +36,7 @@ describe('City', () => {
         }
 
         chai.request(server)
-            .post('/city/new')
+            .put('/city/new')
             .send(n_city)
             .end((err, res) => {
                   res.should.have.status(201);
@@ -47,7 +47,7 @@ describe('City', () => {
       });
   });
 
-  describe('POST /city/new', () => {
+  describe('PUT /city/new', () => {
     it('should not create city without name', (done) => {
       let n_city = {
         holidays: [],
@@ -56,7 +56,7 @@ describe('City', () => {
       }
 
       chai.request(server)
-          .post('/city/new')
+          .put('/city/new')
           .send(n_city)
           .end((err, res) => {
                 res.body.should.have.property('message')

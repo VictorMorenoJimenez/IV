@@ -20,7 +20,7 @@ describe('State', () => {
    });      
   });
 
-  describe('POST /state/new', () => {
+  describe('PUT /state/new', () => {
       it('should create new state', (done) => {
         let n_state = {
           name: "Test State",
@@ -39,7 +39,7 @@ describe('State', () => {
         }
 
         chai.request(server)
-            .post('/state/new')
+            .put('/state/new')
             .send(n_state)
             .end((err, res) => {
                   res.should.have.status(201);
@@ -50,7 +50,7 @@ describe('State', () => {
       });
   });
 
-  describe('POST /state/new', () => {
+  describe('PUT /state/new', () => {
     it('should not create state without name', (done) => {
       let n_state = {
         holidays: [],
@@ -62,7 +62,7 @@ describe('State', () => {
       }
 
       chai.request(server)
-          .post('/state/new')
+          .put('/state/new')
           .send(n_state)
           .end((err, res) => {
                 res.body.should.have.property('message')
