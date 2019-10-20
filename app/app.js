@@ -12,8 +12,10 @@ let config = require('config');
 const dotenv = require('dotenv');
 dotenv.config();
 var dbhost;
-var test_user=process.env.TESTUSER;
-var test_password=process.env.TESTPASSWORD;
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
                                
 app.use(bodyParser.urlencoded({extended: true}));               
@@ -74,41 +76,28 @@ app.get("/", (req, res) => res.status(200).json(
 
 //Country
 
-//Get all countries
 app.route("/country")
   .get(country.getCountries);
 
-// POST routes to Country
 app.route("/country/new")
   .put(country.newCountry);
 
-  // get all countries
 app.route("/country/:country_name")
-  .get(country.getCountryHolidays);
-
-// new holiday on country
-app.route("/country/:country_name")
-  .put(country.newCountryHoliday);
-
-app.route("/country/:country_name")
-    .delete(country.deleteHoliday);
+  .get(country.getCountryHolidays)
+  .put(country.newCountryHoliday)
+  .delete(country.deleteHoliday);
+  
 
 //State
-//Get all states
 app.route("/state")
   .get(state.getStates);
-
-app.route("/state/:state_name")
-  .get(state.getStatebyName);
 
 app.route("/state/new")
   .put(state.newState);
 
-// new holiday on state
 app.route("/state/:state_name")
-  .put(state.newStateHoliday);
-
-app.route("/state/:state_name")
+  .get(state.getStatebyName)
+  .put(state.newStateHoliday)
   .delete(state.deleteHoliday);
 
 //City
@@ -116,18 +105,14 @@ app.route("/state/:state_name")
 app.route("/city")
   .get(city.getCities);
 
-app.route("/city/:city_name")
-  .get(city.getCityByName);
-
 app.route("/city/new")
   .put(city.newCity);
 
-  // new holiday on state
 app.route("/city/:city_name")
-.put(city.newCityHoliday);
-
-app.route("/city/:city_name")
+  .get(city.getCityByName)
+  .put(city.newCityHoliday)
   .delete(city.deleteHoliday);
+
 
 app.listen(port, host);
 console.log(`Running on http://${host}:${port}`);
