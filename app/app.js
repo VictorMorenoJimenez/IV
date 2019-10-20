@@ -61,13 +61,11 @@ mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-
 app.get("/", (req, res) => res.status(200).json(
     {
       "status": "OK",
       "example": {"route":"GET /country/Spain",
       "value": {
-
               "holidays": [
                   {
                       "_id": "5d9be3d16c384618bc4671e6",
@@ -75,8 +73,8 @@ app.get("/", (req, res) => res.status(200).json(
                       "month": 10,
                       "description": "Dia de la Constitucion"
                   }
-              ]
-          }
+            ]
+        }
       }
     }
   )
@@ -102,7 +100,6 @@ app.route("/country/:country_name")
 
 app.route("/country/:country_name")
     .delete(country.deleteHoliday);
-
 
 //State
 //Get all states
