@@ -14,7 +14,7 @@ Open source, ofcourse.
 * [Chai](https://www.chaijs.com/): Assertion Library. Fits good with Mocha.
 * [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.  Heroku is a cloud platform
 as a service (PaaS) that supports several programming languages. Heroku supports Node.js so fits good with this application. Also Heroku integrates perfectly with Docker. Docker is a set of platform as a service (PaaS) products that use OS level virtualization. Docker offers us the possibility of separating our application in different containers, ensuring modularization and isolating the different services from the application. Both Heroku and Docker are open source.
-* [Travis CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/travisci.md): Continuous integration.
-* [Circle CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/circleci.md). Continuous integration. 
+* [Travis CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/travisci.md): Continuous integration. More information on link.
+* [Circle CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/circleci.md). Continuous integration. More information on link.
 
 *Tools version coming soon*.
