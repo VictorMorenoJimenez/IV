@@ -66,7 +66,7 @@ function newCity(req, res) {
 
     if (!valid) { 
         res.status(422).json({ 
-          message: 'Invalid request', 
+          message: error.message, 
           data: newCity 
         }) 
     }else{

@@ -86,7 +86,7 @@ function newCountry(req, res) {
 
     if (!valid) { 
       res.status(422).json({ 
-        message: error, 
+        message: error.message, 
         data: newCountry 
       }) 
     } else { 

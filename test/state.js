@@ -66,7 +66,7 @@ describe('State', () => {
           .send(n_state)
           .end((err, res) => {
                 res.body.should.have.property('message')
-                .eql('Invalid request');
+                .eql('child \"name\" fails because [Name is required and must be String]');
             done();
           });
     });

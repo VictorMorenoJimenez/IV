@@ -63,7 +63,7 @@ describe('Country', () => {
           .send(n_country)
           .end((err, res) => {
                 res.body.should.have.property('message')
-                .eql('Invalid request');
+                .eql('child \"name\" fails because [Name is required and must be String]');
             done();
           });
     });
