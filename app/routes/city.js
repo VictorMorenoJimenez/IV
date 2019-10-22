@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 let City = require('../../models/city');
+let validate = require('../../models/joi');
+const Joi = require('joi')
 
 /**
  * GET /city, get all the cities.
@@ -57,16 +59,26 @@ function newCityHoliday(req, res) {
  */
 function newCity(req, res) {
     var newCity = new City(req.body);
+    const result = Joi.validate(newCity, validate.cityValidateSchema);
+    const { error } = result; 
+    const valid = error == null; 
 
-    //Store on DB
-    newCity.save((err,city) =>{
-        if(err){
-            res.send(err);
-        }else{
-            res.status(201).json({message: "City successfully added!", city})
-        }
-        
-    });
+    if (!valid) { 
+        res.status(422).json({ 
+          message: 'Invalid request', 
+          data: newCity 
+        }) 
+    }else{
+        //Store on DB
+        newCity.save((err,city) =>{
+            if(err){
+                res.send(err);
+            }else{
+                res.status(201).json({message: "City successfully added!", city})
+            }
+        });
+    }
+
 }
 
 /**
