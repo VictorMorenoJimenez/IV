@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "version": "1.0.0",
+    "version": "0.0.5",
     "title": "FreeDAy",
     "description": "API docs for FreeDay project",
     "contact": {
@@ -29,6 +29,7 @@
         "produces": [
           "application/json"
         ],
+        "tags":["Country"],
         "responses": {
           "200": {
             "description": "A list of countries.",
@@ -48,7 +49,7 @@
         "produces": [
           "application/json"
         ],
-        "tag": "country",
+        "tags":["Country"],
         "responses": {
           "200": {
             "description": "A list of holidays",
@@ -66,7 +67,7 @@
         "produces": [
           "application/json"
         ],
-        "tag": "country",
+        "tags":["Country"],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -84,13 +85,14 @@
         "produces": [
           "application/json"
         ],
+        "tags":["Country"],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
             "schema": {
               "type": "string",
               "items": {
-                "$ref": "#/definitions/Holiday"
+                "$ref": "#/definitions/Country"
               }
             }
           }
@@ -99,17 +101,18 @@
     },
     "/country/new": {
       "put": {
-        "description": "Returns all pets from the system that the user has access to",
+        "description": "Creates the Country with the data given in request body",
         "produces": [
           "application/json"
         ],
+        "tags":["Country"],
         "responses": {
-          "200": {
-            "description": "A list of pets.",
+          "201": {
+            "description": "If the operation was successfull.",
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
-                "$ref": "#/definitions/Pet"
+                "$ref": "#/definitions/Country"
               }
             }
           }
@@ -122,6 +125,7 @@
         "produces": [
           "application/json"
         ],
+        "tags":["State"],
         "responses": {
           "200": {
             "description": "A list of states.",
@@ -137,10 +141,11 @@
     },
     "/state/{state_name}": {
       "get": {
-        "description": "Return the holidays from an specific country",
+        "description": "Return the holidays from an specific state",
         "produces": [
           "application/json"
         ],
+        "tags":["State"],
         "responses": {
           "200": {
             "description": "A list of holidays",
@@ -154,10 +159,11 @@
         }
       },
       "put": {
-        "description": "Creates a holiday on the country country_name",
+        "description": "Creates a holiday on the state state_name",
         "produces": [
           "application/json"
         ],
+        "tags":["State"],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -171,17 +177,18 @@
         }
       },
       "delete": {
-        "description": "Deletes the holiday given on post body",
+        "description": "Deletes the state given on post body",
         "produces": [
           "application/json"
         ],
+        "tags":["State"],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
             "schema": {
               "type": "string",
               "items": {
-                "$ref": "#/definitions/Holiday"
+                "$ref": "#/definitions/State"
               }
             }
           }
@@ -190,17 +197,18 @@
     },
     "/state/new": {
       "put": {
-        "description": "Returns all pets from the system that the user has access to",
+        "description": "Creates the State with the data given in request body",
         "produces": [
           "application/json"
         ],
+        "tags":["State"],
         "responses": {
           "200": {
-            "description": "A list of pets.",
+            "description": "If the operation was successfull.",
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
-                "$ref": "#/definitions/Pet"
+                "$ref": "#/definitions/State"
               }
             }
           }
@@ -209,13 +217,14 @@
     },
     "/city": {
       "get": {
-        "description": "Returns all pets from the system that the user has access to",
+        "description": "Returns all the cities",
         "produces": [
           "application/json"
         ],
+        "tags":["City"],
         "responses": {
           "200": {
-            "description": "A list of pets.",
+            "description": "A list of cities.",
             "schema": {
               "type": "array",
               "items": {
@@ -228,10 +237,11 @@
     },
     "/city/{city_name}": {
       "get": {
-        "description": "Return the holidays from an specific country",
+        "description": "Return the holidays from an specific city",
         "produces": [
           "application/json"
         ],
+        "tags":["City"],
         "responses": {
           "200": {
             "description": "A list of holidays",
@@ -245,10 +255,11 @@
         }
       },
       "put": {
-        "description": "Creates a holiday on the country country_name",
+        "description": "Creates a holiday on the city city_name",
         "produces": [
           "application/json"
         ],
+        "tags":["City"],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -262,17 +273,18 @@
         }
       },
       "delete": {
-        "description": "Deletes the holiday given on post body",
+        "description": "Deletes the city given on post body",
         "produces": [
           "application/json"
         ],
+        "tags":["City"],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
             "schema": {
               "type": "string",
               "items": {
-                "$ref": "#/definitions/Holiday"
+                "$ref": "#/definitions/City"
               }
             }
           }
@@ -281,15 +293,16 @@
     },
     "/city/new": {
       "put": {
-        "description": "Returns all pets from the system that the user has access to",
+        "description": "Creates the City with the data given in request body",
         "produces": [
           "application/json"
         ],
+        "tags":["City"],
         "responses": {
           "200": {
-            "description": "A list of pets.",
+            "description": "If the operation was successfull.",
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "$ref": "#/definitions/City"
               }
