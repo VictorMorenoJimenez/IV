@@ -136,4 +136,40 @@ describe('PUT /city/:city_name', () => {
     });
   });
 
+  describe('DELETE /city/delete/:city_name', () => {
+    it('should delete the city city_name', (done) => {
+      let city = {
+        name: "testCity",
+        country: "testCountry",
+        state: "testState",
+        holidays: [
+          {
+            day: 1,
+            month: 1,
+            description: "testHoliday"
+          }
+        ]
+      }
+      //First we create the a test city
+      chai.request(server)
+      .put('/city/new')
+      .send(city)
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.body.should.have.property('message')
+        .eql('City successfully added!');
+      });
+  
+      //Then we delete it
+      chai.request(server)
+          .delete('/city/delete/testCity')
+          .end((err, res) => {
+                res.should.have.status(200)
+                res.body.should.have.property('message')
+                .eql("City removed successfully")
+            done();
+          });
+    });
+  });
+
 });

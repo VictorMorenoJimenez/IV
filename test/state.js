@@ -92,6 +92,24 @@ describe('PUT /state/:state_name', () => {
   });
 });
 
+describe('PUT /state/city/:state_name', () => {
+  it('should add a new city to state :state_name', (done) => {
+    let city = {
+      city: "testcity"
+    }
+
+    chai.request(server)
+        .put('/state/city/Islas Baleares')
+        .send(city)
+        .end((err, res) => {
+              res.should.have.status(201);
+              res.body.should.have.property('message')
+              .eql('City added successfully to state');
+          done();
+        });
+  });
+});
+
   describe('GET /state', () => {
       it('should get all the states of database', (done) => {
         chai.request(server)
@@ -136,6 +154,42 @@ describe('DELETE /state/:state_name', () => {
         .send(holidays)
         .end((err, res) => {
               res.should.have.status(200);
+          done();
+        });
+  });
+});
+
+describe('DELETE /state/delete/:state_name', () => {
+  it('should delete the state state_name', (done) => {
+    let state = {
+      name: "testState",
+      country: "testCountry",
+      holidays: [
+        {
+          day: 1,
+          month: 1,
+          description: "testHoliday"
+        }
+      ],
+      cities: ["City1,City2"]
+    }
+    //First we create the a test State
+    chai.request(server)
+    .put('/state/new')
+    .send(state)
+    .end((err, res) => {
+      res.should.have.status(201);
+      res.body.should.have.property('message')
+      .eql('State successfully added!');
+    });
+
+    //Then we delete it
+    chai.request(server)
+        .delete('/state/delete/testState')
+        .end((err, res) => {
+              res.should.have.status(200)
+              res.body.should.have.property('message')
+              .eql("State removed successfully")
           done();
         });
   });

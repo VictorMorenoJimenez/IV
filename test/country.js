@@ -90,6 +90,23 @@ describe('PUT /country/:country_name', () => {
   });
 });
 
+describe('PUT /country/state/:country_name', () => {
+  it('should add a new state to country :country_name', (done) => {
+    let country = {
+      state: "teststate",
+    }
+
+    chai.request(server)
+        .put('/country/state/Spain')
+        .send(country)
+        .end((err, res) => {
+              res.should.have.status(201);
+              res.body.should.have.property('message')
+              .eql("State successfully added to Country");
+          done();
+        });
+  });
+});
   describe('GET /country', () => {
       it('should get all the countries of database', (done) => {
         chai.request(server)
@@ -135,6 +152,39 @@ describe('PUT /country/:country_name', () => {
           .send(holidays)
           .end((err, res) => {
                 res.should.have.status(200);
+            done();
+          });
+    });
+  });
+
+  describe('DELETE /country/delete/:country_name', () => {
+    it('should delete the country country_name', (done) => {
+      let country = {
+        name: "testCountry",
+        holidays: [
+          {
+            day: 1,
+            month: 1,
+            description: "testHoliday"
+          }
+        ],
+        states: ["State1,State2"]
+      }
+      //First we create the a test Country
+      chai.request(server)
+      .put('/country/new')
+      .send(country)
+      .end((err, res) => {
+            res.should.have.status(201);
+      });
+
+      //Then we delete it
+      chai.request(server)
+          .delete('/country/delete/testCountry')
+          .end((err, res) => {
+                res.should.have.status(200)
+                res.body.should.have.property('message')
+                .eql("Country removed successfully")
             done();
           });
     });
