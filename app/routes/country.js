@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 let Country = require('../../models/country');
+let validate = require('../../models/joi');
+const Joi = require('joi')
 const db = require('../app.js');
 
 /**
@@ -40,7 +42,6 @@ function getCountryHolidays(req, res) {
 function newCountryHoliday(req, res) {
     var newHoliday = req.body;
     country = req.params.country_name;
-    
     let query = Country.updateOne({name: country}, {$addToSet: {holidays: newHoliday, upsert: true}})
 
     query.exec( (err, holidays) =>{
@@ -78,14 +79,25 @@ function newCountry(req, res) {
     //TODO validate
     var newCountry = new Country(req.body);
 
-    //Store on DB
-    newCountry.save((err,country) =>{
-        if(err){
-            res.send(err);
-        }else{
-            res.status(201).json({message: "Country successfully added!", country})
-        }
-    });
+    const result = Joi.validate(newCountry, validate.countryValidateSchema);
+    const { error } = result; 
+    const valid = error == null; 
+
+    if (!valid) { 
+      res.status(422).json({ 
+        message: 'Invalid request', 
+        data: newCountry 
+      }) 
+    } else { 
+        //Store on DB
+        newCountry.save((err,country) =>{
+            if(err){
+                res.send(err);
+            }else{
+                res.status(201).json({message: "Country successfully added!", country})
+            }
+        });
+    }
 }
 
 /**
