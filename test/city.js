@@ -60,7 +60,7 @@ describe('City', () => {
           .send(n_city)
           .end((err, res) => {
                 res.body.should.have.property('message')
-                .eql('City validation failed: name: Path `name` is required.');
+                .eql('Invalid request');
             done();
           });
     });

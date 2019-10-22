@@ -66,7 +66,7 @@ describe('State', () => {
           .send(n_state)
           .end((err, res) => {
                 res.body.should.have.property('message')
-                .eql('State validation failed: name: Path `name` is required.');
+                .eql('Invalid request');
             done();
           });
     });

@@ -63,7 +63,7 @@ describe('Country', () => {
           .send(n_country)
           .end((err, res) => {
                 res.body.should.have.property('message')
-                .eql('Country validation failed: name: Path `name` is required.');
+                .eql('Invalid request');
             done();
           });
     });
