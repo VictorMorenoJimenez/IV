@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 let State = require('../../models/state');
 
 /**
- * GET /state, get all the countries holidays.
+ * GET /state, get all the states.
  */
 
 function getStates(req, res) {
@@ -69,6 +69,24 @@ function newState(req, res) {
 }
 
 /**
+ * PUT /state/city/:state_name, add city to state state_name
+ */
+function addCity(req, res) {
+    var city = req.body.city;
+    state = req.params.state_name;
+    
+    let query = State.updateOne({name: state}, {$addToSet: {cities: city}})
+
+    query.exec( (err, state) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }
+        res.status(201).json({message:"City added successfully to state"});
+    }) 
+}
+
+/**
  * DELETE /state/:state_name delete holiday from state
  */
 function deleteHoliday(req, res) {
@@ -85,4 +103,23 @@ function deleteHoliday(req, res) {
     })
 }
 
-module.exports = { getStatebyName, newStateHoliday, newState, getStates, deleteHoliday };
+/**
+ * DELETE /state/delete/:state_name delete state
+ */
+function deleteState(req, res) {
+    var state_name = req.params.state_name;
+
+    let query = State.deleteOne({ 'name': state_name })
+
+    query.exec( (err, state) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }else{
+            res.status(200).json({message:"State removed successfully"});
+        }
+        
+    })
+}
+
+module.exports = { getStatebyName, newStateHoliday, newState, getStates, deleteHoliday, addCity, deleteState };

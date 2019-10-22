@@ -86,4 +86,22 @@ function deleteHoliday(req, res) {
     })
 }
 
-module.exports = { getCityByName, newCityHoliday, newCity, getCities, deleteHoliday };
+/**
+ * DELETE /delete/city/:city_name delete city city_name
+ */
+function deleteCity(req, res) {
+    var city = req.params.city_name;
+    let query = City.deleteOne({ 'name': city })
+
+    query.exec( (err, city) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }else{
+            res.status(200).json({message:"City removed successfully"});
+        }
+        
+    })
+}
+
+module.exports = { getCityByName, newCityHoliday, newCity, getCities, deleteHoliday, deleteCity };

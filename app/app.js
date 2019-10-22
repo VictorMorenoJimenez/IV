@@ -6,13 +6,12 @@ const country = require("./routes/country");
 const state = require("./routes/state");
 const city = require("./routes/city");
 const port = 8080;
-const host = '0.0.0.0';
+const host = '127.0.0.1';
+const dbhost = 'mongodb://iv:testtest@localhost:27017/FreeDay'
 process.title = "FreeDay";
 let config = require('config');
 const dotenv = require('dotenv');
 dotenv.config();
-var dbhost;
-
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -40,6 +39,7 @@ const options = {
   family: 4 // Use IPv4, skip trying IPv6
 };
 
+/*
 //db connection      
 if( process.env.NODE_ENV != 'test'){
   //production database
@@ -49,27 +49,21 @@ if( process.env.NODE_ENV != 'test'){
   dbhost = process.env.DBHost_test;
 }
 
-dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
+//test
+//dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
+
+//Prodc
+dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
+*/
+
 
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-app.get("/", (req, res) => res.status(200).json(
+app.get("/status", (req, res) => res.status(200).json(
     {
-      "status": "OK",
-      "example": {"route":"GET /country/Spain",
-      "value": {
-              "holidays": [
-                  {
-                      "_id": "5d9be3d16c384618bc4671e6",
-                      "day": 12,
-                      "month": 10,
-                      "description": "Dia de la Constitucion"
-                  }
-            ]
-        }
-      }
+      "status": "OK"
     }
   )
 );
@@ -82,10 +76,16 @@ app.route("/country")
 app.route("/country/new")
   .put(country.newCountry);
 
+app.route("/country/state/:country_name")
+  .put(country.addState);
+
 app.route("/country/:country_name")
   .get(country.getCountryHolidays)
   .put(country.newCountryHoliday)
   .delete(country.deleteHoliday);
+
+app.route("/country/delete/:country_name")
+    .delete(country.deleteCountry)
   
 
 //State
@@ -95,10 +95,16 @@ app.route("/state")
 app.route("/state/new")
   .put(state.newState);
 
+app.route("/state/city/:state_name")
+  .put(state.addCity);
+
 app.route("/state/:state_name")
   .get(state.getStatebyName)
   .put(state.newStateHoliday)
   .delete(state.deleteHoliday);
+
+app.route("/state/delete/:state_name")
+  .delete(state.deleteState)
 
 //City
 //Get all cities
@@ -112,6 +118,9 @@ app.route("/city/:city_name")
   .get(city.getCityByName)
   .put(city.newCityHoliday)
   .delete(city.deleteHoliday);
+
+app.route("/city/delete/:city_name")
+  .delete(city.deleteCity)
 
 
 app.listen(port, host);

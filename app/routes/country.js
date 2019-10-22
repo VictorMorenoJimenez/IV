@@ -19,15 +19,6 @@ function getCountries(req, res) {
 }
 
 /**
- * GET /country/states/:country_name get holidays from all states of country_name
- */
-function getStates(req, res) {
-    country = req.params.country_name;
-    // TODO no es la funcionalidad requerida.
-
-}
-
-/**
  * GET /country/:country_name, get all country_name holidays .
  */
 function getCountryHolidays(req, res) {
@@ -60,6 +51,24 @@ function newCountryHoliday(req, res) {
         res.status(201).json({message:"Holiday successfully added to country"});
     })
     
+}
+
+/**
+ * PUT /country/state/:country_name, add state to country country_name
+ */
+function addState(req, res) {
+    var state = req.body.state;
+    country = req.params.country_name;
+    
+    let query = Country.updateOne({name: country}, {$addToSet: {states: state}})
+
+    query.exec( (err, state) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }
+        res.status(201).json({message:"State successfully added to Country"});
+    }) 
 }
 
 /**
@@ -98,6 +107,27 @@ function deleteHoliday(req, res) {
     })
 }
 
+/**
+ * DELETE /country/delete/:country_name delete holiday from country
+ */
+function deleteCountry(req, res) {
+    var country_name = req.params.country_name;
+
+    let query = Country.deleteOne({ 'name': country_name })
+
+    query.exec( (err, holidays) =>{
+        //Check if no errors and send json back
+        if(err){
+            res.send(err);
+        }else{
+            res.status(200).json({message:"Country removed successfully"});
+        }
+        
+    })
+}
 
 
-module.exports = { getCountries, newCountry, getCountryHolidays, newCountryHoliday, deleteHoliday };
+
+
+
+module.exports = { getCountries, newCountry, getCountryHolidays, newCountryHoliday, deleteHoliday, addState, deleteCountry };
