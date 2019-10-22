@@ -59,8 +59,9 @@ function newCityHoliday(req, res) {
  */
 function newCity(req, res) {
     var newCity = new City(req.body);
-    const result = Joi.validate(newCity, validate.cityValidateSchema);
-    const { error } = result; 
+    var nCity = req.body;
+    const result = Joi.validate(nCity, validate.cityValidateSchema);
+    const { value, error } = result; 
     const valid = error == null; 
 
     if (!valid) { 
@@ -78,7 +79,6 @@ function newCity(req, res) {
             }
         });
     }
-
 }
 
 /**

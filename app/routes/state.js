@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 let State = require('../../models/state');
+let validate = require('../../models/joi');
+const Joi = require('joi')
 
 /**
  * GET /state, get all the states.
@@ -56,16 +58,28 @@ function newStateHoliday(req, res) {
  */
 function newState(req, res) {
     var newState = new State(req.body);
+    var nState = req.body;
+    const result = Joi.validate(nState, validate.stateValidateSchema);
+    const { value, error } = result; 
+    const valid = error == null; 
 
-    //Store on DB
-    newState.save((err,state) =>{
-        if(err){
-            res.send(err);
-        }else{
-            res.status(201).json({message: "State successfully added!", state})
-        }
-        
-    });
+    if (!valid) { 
+        res.status(422).json({ 
+          message: error.message, 
+          data: newState 
+        }) 
+      } else{
+        //Store on DB
+        newState.save((err,state) =>{
+            if(err){
+                res.send(err);
+            }else{
+                res.status(201).json({message: "State successfully added!", state})
+            }
+            
+        });
+      }
+
 }
 
 /**

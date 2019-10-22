@@ -78,14 +78,15 @@ function addState(req, res) {
 function newCountry(req, res) {
     //TODO validate
     var newCountry = new Country(req.body);
+    var nCountry = req.body;
 
-    const result = Joi.validate(newCountry, validate.countryValidateSchema);
-    const { error } = result; 
+    const result = Joi.validate(nCountry, validate.countryValidateSchema);
+    const { value, error } = result; 
     const valid = error == null; 
 
     if (!valid) { 
       res.status(422).json({ 
-        message: 'Invalid request', 
+        message: error, 
         data: newCountry 
       }) 
     } else { 
