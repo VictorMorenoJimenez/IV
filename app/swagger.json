@@ -119,6 +119,46 @@
         }
       }
     },
+    "/country/state/{country_name}": {
+      "put": {
+        "description": "Adds a state given in POST body to country country_name",
+        "produces": [
+          "application/json"
+        ],
+        "tags":["Country"],
+        "responses": {
+          "201": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/country/delete/{country_name}": {
+      "delete": {
+        "description": "Deletes the Country country_name",
+        "produces": [
+          "application/json"
+        ],
+        "tags":["Country"],
+        "responses": {
+          "200": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        }
+      }
+    },
     "/state": {
       "get": {
         "description": "Returns all the states",
@@ -215,6 +255,46 @@
         }
       }
     },
+    "/state/city/{state_name}": {
+      "delete": {
+        "description": "Adds a city given in POST body to state state_name",
+        "produces": [
+          "application/json"
+        ],
+        "tags":["State"],
+        "responses": {
+          "201": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/State"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/state/delete/{state_name}": {
+      "put": {
+        "description": "Deletes the State state_name",
+        "produces": [
+          "application/json"
+        ],
+        "tags":["State"],
+        "responses": {
+          "200": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/State"
+              }
+            }
+          }
+        }
+      }
+    },
     "/city": {
       "get": {
         "description": "Returns all the cities",
@@ -294,6 +374,26 @@
     "/city/new": {
       "put": {
         "description": "Creates the City with the data given in request body",
+        "produces": [
+          "application/json"
+        ],
+        "tags":["City"],
+        "responses": {
+          "200": {
+            "description": "If the operation was successfull.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/definitions/City"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/city/delete/{city_name}": {
+      "delete": {
+        "description": "Deletes the city city_name",
         "produces": [
           "application/json"
         ],
