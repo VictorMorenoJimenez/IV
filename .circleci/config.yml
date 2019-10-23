@@ -12,10 +12,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "MongoDB"
-          command: |
-            mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
-      - run:
           name: Install package json dependencies
           command: npm install .
       - run:
