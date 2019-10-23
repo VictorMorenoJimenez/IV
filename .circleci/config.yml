@@ -14,9 +14,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Wait for Mongo
-          command: dockerize -wait tcp:127.0.0.1:27017 -timeout 180s
-      - run:
           name: Install package json dependencies
           command: npm install .
       - run:
