@@ -12,8 +12,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Database Setup
-        command: "mongo --eval 'db.createUser({ user: 'myrootuser', pwd: 'mypassword', roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] })"
+          name: Database Setup
+          command: "mongo --eval 'db.createUser({ user: 'myrootuser', pwd: 'mypassword', roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] })"
       - run:
           name: Install package json dependencies
           command: npm install .
