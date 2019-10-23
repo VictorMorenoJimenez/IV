@@ -6,7 +6,7 @@ const country = require("./routes/country");
 const state = require("./routes/state");
 const city = require("./routes/city");
 const port = 8080;
-const host = '127.0.0.1';
+const host = '0.0.0.0';
 const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
 //const dbhost = 'mongodb://iv:test@localhost:27017/FreeDay';
 process.title = "FreeDay";
