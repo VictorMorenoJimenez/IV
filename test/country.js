@@ -69,6 +69,26 @@ describe('Country', () => {
     });
 });
 
+describe('PUT /country/new', () => {
+  it('should not create country without holidays', (done) => {
+    let n_country = {
+      name:"Test",
+      states: [
+        "State test1",
+        "State test2"
+      ]
+    }
+
+    chai.request(server)
+        .put('/country/new')
+        .send(n_country)
+        .end((err, res) => {
+              res.body.should.have.property('message')
+              .eql('child \"holidays\" fails because [\"holidays\" is required]');
+          done();
+        });
+  });
+});
 
 describe('PUT /country/:country_name', () => {
   it('should create new holiday to country :country_name', (done) => {
