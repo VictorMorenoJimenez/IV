@@ -9,6 +9,7 @@ We added one first and simple configuration for Node.js.
     language: node_js
     node_js: 
     - "stable"
+    - "12"
     - "6"
     - "8"
     - "10"
