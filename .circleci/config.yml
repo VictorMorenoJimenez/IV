@@ -3,17 +3,17 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.10
-#      - image: mongo:4.2.0
-#        port: 27017:27017
-#        environment:
-#          - MONGODB_USERNAME: "iv"
-#          - MONGODB_PASSWORD: "test"
+      - image: mongo:4.2.0
+        port: 27017:27017
+        environment:
+          - MONGODB_USERNAME: "iv"
+          - MONGODB_PASSWORD: "test"
     working_directory: ~/IV
     steps:
       - checkout
-#      - run:
-#          name: Database Setup
-#          command: "mongodb && mongo --eval 'db.createUser({ user: 'myrootuser', pwd: 'mypassword', roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] })"
+      - run:
+          name: Database Setup
+          command: mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
       - run:
           name: Install package json dependencies
           command: npm install .
