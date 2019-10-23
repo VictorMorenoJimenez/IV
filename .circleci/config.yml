@@ -3,8 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.10
-      - image: mongo:4.2.0
-        port: 27017:27017
         environment:
           - MONGODB_USERNAME: "iv"
           - MONGODB_PASSWORD: "test"
@@ -12,7 +10,14 @@ jobs:
     working_directory: ~/IV
     steps:
       - checkout
-      - run: mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});
+        - run:
+          name: "MongoDB"
+          command: |
+            echo "deb http://repo.mongodb.org/apt/debian "$(lsb_release -sc)"/mongodb-org/4.0 main" | sudo tee /etc/apt/sources.list.d/mongodb.list
+            sudo apt-get update
+            sudo apt-get install mongodb-org
+            mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
+            mongo mongodb://localhost:27017 --eval "rs.initiate()"
       - run:
           name: Install package json dependencies
           command: npm install .
