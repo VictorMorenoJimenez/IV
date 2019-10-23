@@ -3,11 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.10
-#      - image: mongo:4.2.0
-#        port: 27017:27017
-#        environment:
-#          - MONGODB_USERNAME: "iv"
-#          - MONGODB_PASSWORD: "test"
+      - image: mongo:4.2.0
+        port: 27017:27017
+        environment:
+          - MONGODB_USERNAME: "iv"
+          - MONGODB_PASSWORD: "test"
     working_directory: ~/IV
     steps:
       - checkout
