@@ -9,7 +9,7 @@ jobs:
         environment:
           - MONGO_INITDB_ROOT_USERNAME: "iv"
           - MONGO_INITDB_ROOT_PASSWORD: "test"
-          - MONGO_URL: mongodb://127.0.0.1:27017
+          - MONGO_URL: "mongodb://iv:test@localhost:27017/FreeDay"
     working_directory: ~/IV
     steps:
       - checkout
