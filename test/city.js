@@ -136,7 +136,7 @@ describe('PUT /city/:city_name', () => {
         month: 1,
         description: "Test holiday"
       }
-      //First we create the holiday
+      
       chai.request(server)
       .put('/city/Ibiza')
       .send(holidays)
@@ -144,7 +144,6 @@ describe('PUT /city/:city_name', () => {
             res.should.have.status(201);
       });
   
-      //Then we delete it
       chai.request(server)
           .delete('/city/Ibiza')
           .send(holidays)
