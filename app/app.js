@@ -7,7 +7,8 @@ const state = require("./routes/state");
 const city = require("./routes/city");
 const port = 8080;
 const host = '127.0.0.1';
-const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
+//const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
+const dbhost = 'mongodb://iv:test@localhost:27017/FreeDay';
 process.title = "FreeDay";
 const dotenv = require('dotenv');
 dotenv.config();
@@ -15,7 +16,9 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-                               
+
+// To handle HTTP POST request in Express.
+// Body-parser extract the entire body portion of an incoming request and exposes it on req.body            
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));
