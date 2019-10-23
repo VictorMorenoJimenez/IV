@@ -38,6 +38,8 @@ To run the server
 ## Build 
 buildtool: package.json
 
+All the npm packages used on this project can be checked [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dependencies.md)
+
 ## APi Design
 Check your API endpoints [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/apidesign.md). and user stories [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/userstories.md).
 
