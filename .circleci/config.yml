@@ -7,12 +7,15 @@ jobs:
         -run:
           command: mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
         environment:
-          - MONGODB_USERNAME: "iv"
-          - MONGODB_PASSWORD: "test"
+          - MONGO_INITDB_ROOT_USERNAME: "iv"
+          - MONGO_INITDB_ROOT_PASSWORD: "test"
           - MONGO_URL: mongodb://127.0.0.1:27017
     working_directory: ~/IV
     steps:
       - checkout
+      - run:
+          name: Wait for Mongo
+          command: dockerize -wait tcp:127.0.0.1:27017 -timeout 180s
       - run:
           name: Install package json dependencies
           command: npm install .
