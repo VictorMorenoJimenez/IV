@@ -8,12 +8,14 @@ jobs:
         environment:
           - MONGODB_USERNAME: "iv"
           - MONGODB_PASSWORD: "test"
+          - MONGO_URL: mongodb://127.0.0.1:27017
     working_directory: ~/IV
     steps:
       - checkout
-#      - run:
-#          name: Database Setup
-#          command: mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
+      - run:
+          name: Database Setup
+          command: |
+          mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});
       - run:
           name: Install package json dependencies
           command: npm install .
