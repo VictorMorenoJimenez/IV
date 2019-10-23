@@ -12,6 +12,14 @@ We added one first and simple configuration for Node.js.
     - "6"
     - "8"
     - "10"
+    services: mongodb
+    cache:
+    directories:
+        - "node_modules"
+    before_script:
+    - mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
+    before_install:
+    - npm install .
     script:
     - npm test
 ```
