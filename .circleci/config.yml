@@ -7,7 +7,6 @@ jobs:
           - MONGO_INITDB_ROOT_USERNAME: "iv"
           - MONGO_INITDB_ROOT_PASSWORD: "test"
           - MONGO_URL: "mongodb://iv:test@localhost:27017/FreeDay"
-      - MONGO_URL: "mongodb://iv:test@localhost:27017/FreeDay"
       - image: circleci/mongo
         -run:
           command: mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
