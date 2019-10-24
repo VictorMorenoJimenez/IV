@@ -3,8 +3,6 @@ FROM node:12
 # Create app directory
 WORKDIR /usr/src/iv
 
-RUN mkdir /mnt/mongodb
-
 COPY package*.json ./
 #Install all dependencies
 
