@@ -5,6 +5,22 @@ const Joi = require('joi')
 const db = require('../app.js');
 
 /**
+ * GET /status, get status test..
+ */
+
+function getStatus(req, res) {
+
+    res.status(200).json(
+        {
+            "status": "OK"
+        }
+    )
+
+    console.log("Getting sample /status, status OK")
+}
+
+
+/**
  * GET /country, get all the countries holidays.
  */
 
@@ -143,4 +159,4 @@ function deleteCountry(req, res) {
 
 
 
-module.exports = { getCountries, newCountry, getCountryHolidays, newCountryHoliday, deleteHoliday, addState, deleteCountry };
+module.exports = { getCountries, newCountry, getCountryHolidays, newCountryHoliday, deleteHoliday, addState, deleteCountry, getStatus };
