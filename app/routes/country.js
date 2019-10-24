@@ -32,7 +32,11 @@ function getCountries(req, res) {
         if(err){
             res.send(err);
         }
-        res.status(200).json(countries);
+        else{
+            console.log("Get /country get all the countries from DB");
+            res.status(200).json(countries);
+        }
+        
     })
 }
 
@@ -47,8 +51,10 @@ function getCountryHolidays(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        } else{
+            res.status(200).json(country);
+            console.log("GET /country/" + country_name + ". Get the holidays from the country " + country_name);
         }
-        res.status(200).json(country);
     })
 }
 
@@ -64,8 +70,10 @@ function newCountryHoliday(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            res.status(201).json({message:"Holiday successfully added to country"});
+            console.log("PUT /country/" + country_name + ". Created the holidays " + req.body + " on country " + country_name);
         }
-        res.status(201).json({message:"Holiday successfully added to country"});
     })
     
 }
@@ -84,7 +92,11 @@ function addState(req, res) {
         if(err){
             res.send(err);
         }
-        res.status(201).json({message:"State successfully added to Country"});
+        else{
+            res.status(201).json({message:"State successfully added to Country"});
+            console.log("PUT /country/state" + country_name + ". Added state " + state + " to country " + country_name);
+        }
+        
     }) 
 }
 
@@ -111,6 +123,7 @@ function newCountry(req, res) {
             if(err){
                 res.send(err);
             }else{
+                console.log("PUT /country/new, created new Country with the request body in DB");
                 res.status(201).json({message: "Country successfully added!", country})
             }
         });
@@ -130,6 +143,7 @@ function deleteHoliday(req, res) {
         if(err){
             res.send(err);
         }else{
+            console.log("DELETE /country/" + country_name + " deleted country " + country_name);
             res.status(200).json({message:"Holiday removed successfully"});
         }
         
@@ -137,7 +151,7 @@ function deleteHoliday(req, res) {
 }
 
 /**
- * DELETE /country/delete/:country_name delete holiday from country
+ * DELETE /country/delete/:country_name delete country
  */
 function deleteCountry(req, res) {
     var country_name = req.params.country_name;
@@ -149,6 +163,7 @@ function deleteCountry(req, res) {
         if(err){
             res.send(err);
         }else{
+            console.log("DELETE /country/delete" + country_name + " deleted country " + country_name);
             res.status(200).json({message:"Country removed successfully"});
         }
         
