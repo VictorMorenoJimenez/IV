@@ -50,6 +50,15 @@
           "application/json"
         ],
         "tags":["Country"],
+        "parameters": [
+          {
+            "name": "country_name",
+            "in": "path",
+            "description": "The name of the country to return holidays",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "A list of holidays",
@@ -68,6 +77,15 @@
           "application/json"
         ],
         "tags":["Country"],
+        "parameters": [
+          {
+            "name": "country_name",
+            "in": "path",
+            "description": "The name of the country to create holidays",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -86,6 +104,15 @@
           "application/json"
         ],
         "tags":["Country"],
+        "parameters": [
+          {
+            "name": "country_name",
+            "in": "path",
+            "description": "The name of the country to delete the holidays on post body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
@@ -126,6 +153,15 @@
           "application/json"
         ],
         "tags":["Country"],
+        "parameters": [
+          {
+            "name": "country_name",
+            "in": "path",
+            "description": "The name of the country to add a state given in POST body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -146,6 +182,15 @@
           "application/json"
         ],
         "tags":["Country"],
+        "parameters": [
+          {
+            "name": "country_name",
+            "in": "path",
+            "description": "The name of the country to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
@@ -186,6 +231,15 @@
           "application/json"
         ],
         "tags":["State"],
+        "parameters": [
+          {
+            "name": "state_name",
+            "in": "path",
+            "description": "The name of the state to get the holidays",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "A list of holidays",
@@ -204,6 +258,15 @@
           "application/json"
         ],
         "tags":["State"],
+        "parameters": [
+          {
+            "name": "state_name",
+            "in": "path",
+            "description": "The name of the state to add a holiday given in POST body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -217,11 +280,20 @@
         }
       },
       "delete": {
-        "description": "Deletes the state given on post body",
+        "description": "Deletes the holidays given on post body",
         "produces": [
           "application/json"
         ],
         "tags":["State"],
+        "parameters": [
+          {
+            "name": "state_name",
+            "in": "path",
+            "description": "The name of the state to delete the holiday given in POST body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
@@ -261,6 +333,15 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "name": "state_name",
+            "in": "path",
+            "description": "The name of the state to add a city given in POST body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "tags":["State"],
         "responses": {
           "201": {
@@ -282,6 +363,15 @@
           "application/json"
         ],
         "tags":["State"],
+        "parameters": [
+          {
+            "name": "state_name",
+            "in": "path",
+            "description": "The name of the state to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
@@ -322,6 +412,15 @@
           "application/json"
         ],
         "tags":["City"],
+        "parameters": [
+          {
+            "name": "city_name",
+            "in": "path",
+            "description": "The name of the city to get the holidays",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "A list of holidays",
@@ -340,6 +439,15 @@
           "application/json"
         ],
         "tags":["City"],
+        "parameters": [
+          {
+            "name": "city_name",
+            "in": "path",
+            "description": "The name of the city to create the holidays given on POST body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
             "description": "If the operation was successfull.",
@@ -353,11 +461,20 @@
         }
       },
       "delete": {
-        "description": "Deletes the city given on post body",
+        "description": "Deletes the city given on POST body",
         "produces": [
           "application/json"
         ],
         "tags":["City"],
+        "parameters": [
+          {
+            "name": "city_name",
+            "in": "path",
+            "description": "The name of the city to delete the holidays given on POST body",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
@@ -398,6 +515,15 @@
           "application/json"
         ],
         "tags":["City"],
+        "parameters": [
+          {
+            "name": "city_name",
+            "in": "path",
+            "description": "The name of the city to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "If the operation was successfull.",
