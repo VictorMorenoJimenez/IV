@@ -1,14 +1,58 @@
 version: "3.7"
 services:
-  web:
+  nodeapp:
     image: node_app
     ports:
       - "8080:8080"
+    links:
+      - fluentd
     depends_on:
       - mongodb
+      - fluentd
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: node_app
+
   mongodb:
     image: mongo
     volumes:
       - ./data:/data/db
     ports:
     - "27017:27017"
+    links:
+      - fluentd
+    depends_on:
+      - fluentd
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: mongo_app
+
+  fluentd:
+    build: ./fluentd
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    links:
+      - "elasticsearch"
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.1
+    environment:
+      - "discovery.type=single-node"
+    expose:
+      - "9200"
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: kibana:7.4.1
+    links:
+      - "elasticsearch"
+    ports:
+      - "5601:5601"
