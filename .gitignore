@@ -53,6 +53,9 @@ typings/
 # Optional eslint cache
 .eslintcache
 
+#MongoDB DB
+data/
+
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
