@@ -72,7 +72,7 @@ function newCountryHoliday(req, res) {
             res.send(err);
         }else{
             res.status(201).json({message:"Holiday successfully added to country"});
-            console.log("PUT /country/" + country_name + ". Created the holidays " + req.body + " on country " + country_name);
+            console.log("PUT /country/" + country + ". Created the holidays on country " + country);
         }
     })
     
@@ -94,7 +94,7 @@ function addState(req, res) {
         }
         else{
             res.status(201).json({message:"State successfully added to Country"});
-            console.log("PUT /country/state" + country_name + ". Added state " + state + " to country " + country_name);
+            console.log("PUT /country/state" + country + ". Added state to country " + country);
         }
         
     }) 
@@ -124,7 +124,7 @@ function newCountry(req, res) {
                 res.send(err);
             }else{
                 console.log("PUT /country/new, created new Country with the request body in DB");
-                res.status(201).json({message: "Country successfully added!", country})
+                res.status(201).json({message: "Country successfully added!", nCountry})
             }
         });
     }
