@@ -7,7 +7,7 @@ You can download the latest Docker and docker-compose from [official Docker webs
 Docker containers are created from an image, so first of all we must create our image for the node application. 
 This is done using a Dockerfile like the one shown below.
 
-```
+```Dockerfile
 FROM node:12
 
 # Create app directory
@@ -36,7 +36,7 @@ So it will start the node app.
 
 Once we define our Dockerfile we have to build the image. We open a terminal in the same directory than Dockerfile and type:
 
-```
+```bash
     docker build -t node_app .
 ```
 
@@ -44,7 +44,7 @@ We are telling docker to build . with a tag node_app. Docker will look for a Doc
 
 We can check that it worked by typing:
 
-```
+```bash
     > docker image ls
 
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -56,7 +56,7 @@ Now we have created our Docker image, but we have no container running.
 We choosed to run the containers with a docker-compose file. 
 In the docker-compose file we define some services ( in our case web app and database ) and docker-compose will launch them for us.
 
-```
+```Dockerfile
 version: "3.7"
 services:
   web:
