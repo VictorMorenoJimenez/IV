@@ -16,6 +16,7 @@ dotenv.config();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const logger = require('fluent-logger');
 
 
 // To handle HTTP POST request in Express.
@@ -23,6 +24,13 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));
+
+logger.configure('fluentd-FreeDay', {
+  host: 'localhost',
+  port: 24224,
+  timeout: 3.0,
+  reconnectInterval: 600000 // 10 minutes
+});
 
 
 // Common options
@@ -64,12 +72,9 @@ mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-app.get("/status", (req, res) => res.status(200).json(
-    {
-      "status": "OK"
-    }
-  )
-);
+app.route("/status")
+  .get(country.getStatus);
+
 
 //Country
 
