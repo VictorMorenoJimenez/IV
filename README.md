@@ -35,6 +35,9 @@ To run the server
     npm start
 ```
 
+You can also run FreeDay in Docker containers!
+More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/docker.md)
+
 ## Build 
 buildtool: package.json
 
