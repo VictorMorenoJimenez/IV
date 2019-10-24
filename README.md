@@ -68,6 +68,8 @@ To set up a development envirorment and contribute you just have to follow the I
     * First API Development and Tests developed functionalities.
 * 0.4
     * Completed Documentation.
+* 0.5
+    * Completed API Rest, Dockerized App, Completed Endpoints Tests
 
 ## Meta
 
