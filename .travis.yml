@@ -1,3 +1,4 @@
+sudo: required
 language: node_js
 services: docker
 cache:
@@ -10,8 +11,8 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-after_install:
   - docker build -t node_app .
   - docker-compose up
+
 script:
   npm test
