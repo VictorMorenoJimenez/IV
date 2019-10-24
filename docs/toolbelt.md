@@ -9,7 +9,12 @@ Fits perfectly with FreeDay.
 I wanted to learn a NoSQL tool. Also MongoDB has a big community behind, and that's always a good sign when choosing a tool.
 * [Fluentd](https://www.fluentd.org/): Nowadays a logging system is essential for any kind of application. Fluentd allows you 
 to unify your data of your application. Every single service inside the application, logs to fluentd and fluentd manages and structures that data.
-Open source, ofcourse.
+Fluentd is one part of the logging stack of the application. Fluentd is the responsible of receiving the data from the Node app and the MongoDB service,
+and send them to Elasticsearch.
+* [Elasticsearch](https://www.elastic.co/products/elastic-stack): Elasticsearch is a search engine. With Elasticsearch we will be able to easily find 
+keywords on our logs. Elastic search is designed to handle a large amount of information. Essential if our application grows exponentially.
+It's part of our EFK stack.
+* [Kibana](https://www.elastic.co/products/kibana): Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data. Kibana will show us the logs data of our application in a pretty way.
 * [Mocha](https://mochajs.org/): Testing JavaScript framework. Mocha is the most popular test tool for JavaScript. I`ve been trying some other alternatives like Jasmine but Mocha has proved to be simplest and more effective.
 * [Chai](https://www.chaijs.com/): Assertion Library. Fits good with Mocha.
 * [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.  Heroku is a cloud platform
