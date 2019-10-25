@@ -14,6 +14,7 @@ function getCities(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+            console.log(err);
         }else{
             console.log("Get /city get all the cities from DB");
             res.status(200).json(cities);
@@ -32,6 +33,7 @@ function getCityByName(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+            console.log(err);
         }else{
             console.log("GET /city/" + city + ". Get the holidays from the city " + city);
             res.status(200).json(city);
@@ -53,6 +55,7 @@ function newCityHoliday(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+            console.log(err);
         }else{
             console.log("PUT /city/" + city + ". Created the holidays on city " + city);
             res.status(201).json({message:"Holiday successfully added to city"});
@@ -74,11 +77,13 @@ function newCity(req, res) {
         res.status(422).json({ 
           message: error.message, 
           data: newCity 
-        }) 
+        })
+        console.log(error.message); 
     }else{
         //Store on DB
         newCity.save((err,city) =>{
             if(err){
+                console.log(err);
                 res.send(err);
             }else{
                 console.log("PUT /city/new, created new City with the request body in DB");
@@ -99,6 +104,7 @@ function deleteHoliday(req, res) {
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("DELETE /city/" + city + " deleted city holidays that description matches with request body");
@@ -117,12 +123,12 @@ function deleteCity(req, res) {
     query.exec( (err, city) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("DELETE /city/delete" + city + " deleted city " + city);
             res.status(200).json({message:"City removed successfully"});
-        }
-        
+        }     
     })
 }
 
