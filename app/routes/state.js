@@ -13,6 +13,7 @@ function getStates(req, res) {
     query.exec( (err, states) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("Get /country get all the states from DB");
@@ -32,6 +33,7 @@ function getStatebyName(req, res) {
     query.exec( (err, state) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("GET /state/" + state_name + ". Get the holidays from the state " + state_name);
@@ -53,6 +55,7 @@ function newStateHoliday(req, res) {
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("PUT /state/" + state + ". Created the holidays on state " + state);
@@ -76,7 +79,7 @@ function newState(req, res) {
           message: error.message, 
           data: newState 
         })
-        console.log("Invalid JSON on body, can't create state");
+        console.log(error.message);
       } else{
         //Store on DB
         newState.save((err,state) =>{
@@ -105,6 +108,7 @@ function addCity(req, res) {
     query.exec( (err, state) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("PUT /state/city" + state + ". Added city to state " + state);
@@ -124,6 +128,7 @@ function deleteHoliday(req, res) {
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("DELETE /state/" + state + " deleted state holidays");
@@ -143,6 +148,7 @@ function deleteState(req, res) {
     query.exec( (err, state) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("DELETE /state/delete" + state_name + " deleted state " + state_name);
