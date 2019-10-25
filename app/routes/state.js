@@ -1,4 +1,3 @@
-let mongoose = require('mongoose');
 let State = require('../../models/state');
 let validate = require('../../models/joi');
 const Joi = require('joi')
@@ -93,7 +92,6 @@ function newState(req, res) {
             
         });
       }
-
 }
 
 /**
