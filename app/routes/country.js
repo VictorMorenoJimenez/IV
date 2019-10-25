@@ -1,8 +1,6 @@
-let mongoose = require('mongoose');
 let Country = require('../../models/country');
 let validate = require('../../models/joi');
 const Joi = require('joi')
-const db = require('../app.js');
 
 /**
  * GET /status, get status test..
