@@ -8,8 +8,6 @@ const city = require("./routes/city");
 const port = 8080;
 const host = '0.0.0.0';
 const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
-//const dbhost = 'mongodb://iv:test@localhost:27017/FreeDay';
-//const dbhost = 'mongodb://mongodb:27017';
 process.title = "FreeDay";
 const dotenv = require('dotenv');
 dotenv.config();
@@ -17,14 +15,11 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-
 // To handle HTTP POST request in Express.
 // Body-parser extract the entire body portion of an incoming request and exposes it on req.body            
 app.use(bodyParser.urlencoded({extended: true}));               
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));
-
-
 
 // Common options
 const options = {
@@ -52,15 +47,10 @@ if( process.env.NODE_ENV != 'test'){
   //test database
   dbhost = process.env.DBHost_test;
 }
-
-//test
-//dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
-
-//Prodc
-dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
 */
 
 
+// DB Connection
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -108,7 +98,6 @@ app.route("/state/delete/:state_name")
   .delete(state.deleteState)
 
 //City
-//Get all cities
 app.route("/city")
   .get(city.getCities);
 
@@ -123,7 +112,7 @@ app.route("/city/:city_name")
 app.route("/city/delete/:city_name")
   .delete(city.deleteCity)
 
-
+  
 app.listen(port, host);
 console.log(`Running on http://${host}:${port}`);
 
