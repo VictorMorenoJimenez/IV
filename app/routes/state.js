@@ -14,8 +14,11 @@ function getStates(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            console.log("Get /country get all the states from DB");
+            res.status(200).json(states);
         }
-        res.json(states);
+        
     })
 }
 
@@ -30,8 +33,11 @@ function getStatebyName(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            console.log("GET /state/" + state_name + ". Get the holidays from the state " + state_name);
+            res.status(200).json(state);
         }
-        res.status(200).json(state);
+        
     })
 }
 
@@ -48,8 +54,10 @@ function newStateHoliday(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            console.log("PUT /state/" + state + ". Created the holidays on state " + state);
+            res.status(201).json({message:"Holiday successfully added to state"});
         }
-        res.status(201).json({message:"Holiday successfully added to state"});
     })
 }
 
@@ -67,14 +75,17 @@ function newState(req, res) {
         res.status(422).json({ 
           message: error.message, 
           data: newState 
-        }) 
+        })
+        console.log("Invalid JSON on body, can't create state");
       } else{
         //Store on DB
         newState.save((err,state) =>{
             if(err){
                 res.send(err);
+                console.log(err);
             }else{
-                res.status(201).json({message: "State successfully added!", state})
+                console.log("PUT /state/new, created new State with the request body in DB");
+                res.status(201).json({message: "State successfully added!", state});
             }
             
         });
@@ -95,8 +106,10 @@ function addCity(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            console.log("PUT /state/city" + state + ". Added city to state " + state);
+            res.status(201).json({message:"City added successfully to state"});
         }
-        res.status(201).json({message:"City added successfully to state"});
     }) 
 }
 
@@ -112,8 +125,10 @@ function deleteHoliday(req, res) {
         //Check if no errors and send json back
         if(err){
             res.send(err);
+        }else{
+            console.log("DELETE /state/" + state + " deleted state holidays");
+            res.status(200).json({message:"Holiday removed successfully"});
         }
-        res.status(200).json({message:"Holiday removed successfully"});
     })
 }
 
@@ -130,6 +145,7 @@ function deleteState(req, res) {
         if(err){
             res.send(err);
         }else{
+            console.log("DELETE /state/delete" + state_name + " deleted state " + state_name);
             res.status(200).json({message:"State removed successfully"});
         }
         
