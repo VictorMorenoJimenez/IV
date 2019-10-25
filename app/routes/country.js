@@ -30,6 +30,7 @@ function getCountries(req, res) {
     query.exec( (err, countries) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }
         else{
@@ -50,6 +51,7 @@ function getCountryHolidays(req, res) {
     query.exec( (err, country) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         } else{
             res.status(200).json(country);
@@ -69,6 +71,7 @@ function newCountryHoliday(req, res) {
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             res.status(201).json({message:"Holiday successfully added to country"});
@@ -90,6 +93,7 @@ function addState(req, res) {
     query.exec( (err, state) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }
         else{
@@ -117,10 +121,12 @@ function newCountry(req, res) {
         message: error.message, 
         data: newCountry 
       }) 
+      console.log(error.message);
     } else { 
         //Store on DB
         newCountry.save((err,country) =>{
             if(err){
+                console.log(err);
                 res.send(err);
             }else{
                 console.log("PUT /country/new, created new Country with the request body in DB");
@@ -141,9 +147,10 @@ function deleteHoliday(req, res) {
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
-            console.log("DELETE /country/" + country_name + " deleted country " + country_name);
+            console.log("DELETE /country/" + country_name + " deleted country holidays ");
             res.status(200).json({message:"Holiday removed successfully"});
         }
         
@@ -161,6 +168,7 @@ function deleteCountry(req, res) {
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
         if(err){
+            console.log(err);
             res.send(err);
         }else{
             console.log("DELETE /country/delete" + country_name + " deleted country " + country_name);
