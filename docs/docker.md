@@ -78,6 +78,12 @@ We are telling Docker to create the service web from the recently created node_a
 so we can access from the host.
 
 The service mongodb will use the official mongo image and will bind the default mongodb port from container to host.
+
+Before running the docker-compose up script, we have to change the permisson of the folder elasticsearch, run the following command on a terminal:
+
+```bash
+	chown -R `whoami`:`whoami` elasticsearch	
+```
 So now we have everything setup we just have to open a terminal and run:
 
 ```
