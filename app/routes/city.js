@@ -1,4 +1,3 @@
-let mongoose = require('mongoose');
 let City = require('../../models/city');
 let validate = require('../../models/joi');
 const Joi = require('joi')
