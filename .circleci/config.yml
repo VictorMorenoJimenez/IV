@@ -3,13 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.10
-        environment:
-          - MONGO_INITDB_ROOT_USERNAME: "iv"
-          - MONGO_INITDB_ROOT_PASSWORD: "test"
-          - MONGO_URL: "mongodb://iv:test@localhost:27017/FreeDay"
       - image: circleci/mongo
-        -run:
-          command: mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
     working_directory: ~/IV
     steps:
       - checkout
