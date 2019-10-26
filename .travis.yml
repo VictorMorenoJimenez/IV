@@ -6,11 +6,12 @@ node_js:
   - "10"
   - "12"
 services: mongodb
-hosts:
-  - mongodb
 cache:
   directories:
     - "node_modules"
+addons:
+  hosts:
+    - mongodb
 before_script:
   - mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
 before_install:
