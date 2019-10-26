@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.10
+        user: root
       - image: circleci/mongo
     working_directory: ~/IV
     steps:
