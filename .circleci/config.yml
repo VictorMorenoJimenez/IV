@@ -3,19 +3,18 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.10
-#        user: root
+        user: root
       - image: circleci/mongo
-      - name: mongodb
     working_directory: ~/IV
     steps:
       - checkout
       - run:
           name: Install package json dependencies
           command: npm install .
-#      - run:
-#          name: Add mongodb to localhost
-#          command: |
-#            sudo echo "127.0.0.1  mongodb" >> /etc/hosts
+      - run:
+          name: Add mongodb to localhost
+          command: |
+            sudo echo "127.0.0.1  mongodb" >> /etc/hosts
       - run:
           name: Run test
           command: npm test
