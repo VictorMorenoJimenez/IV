@@ -8,11 +8,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Add mongodb to localhost
-          command: echo "127.0.0.1  mongodb >> /etc/hosts"
-      - run:
           name: Install package json dependencies
           command: npm install .
+      - run:
+          name: Add mongodb to localhost
+          command: echo "127.0.0.1  mongodb >> /etc/hosts"
       - run:
           name: Run test
           command: npm test
