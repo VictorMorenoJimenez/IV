@@ -10,6 +10,7 @@ cache:
   directories:
     - "node_modules"
 before_script:
+  - sudo echo "127.0.0.1  mongodb" >> /etc/hosts
   - mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
 before_install:
   - npm install .
