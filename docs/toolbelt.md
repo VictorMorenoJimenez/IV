@@ -22,6 +22,7 @@ It's part of our EFK stack.
 Kubernetes is a powerfull container management tool that automates the deployment and management of containers, K8s will help us to orchestrate, scale and provide
 communication across the cluster. We choosed Kubernetes becuase our project is modularized in different containers and that will make easy the deploy on Kubernetes. Also Kubernetes is created by Google, which provides a great community and support in case of problems.
 * [Azure](https://azure.microsoft.com/es-es/services/kubernetes-service/): We choosed Azure for cloud hosting because Azure provides a great integration with kubernetes. 
-Azure has a great documentation for deploying a Kubernetes cluster to their cloud. 
+Azure has a great documentation for deploying a Kubernetes cluster to their cloud. Also Azure gives some credit to run apps on their platform if you are a student, so we will
+have some free cloud computing to deploy our project.
 * [Travis CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/travisci.md): Continuous integration. More information on link.
 * [Circle CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/circleci.md). Continuous integration. More information on link.
