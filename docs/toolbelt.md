@@ -17,9 +17,11 @@ It's part of our EFK stack.
 * [Kibana](https://www.elastic.co/products/kibana): Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data. Kibana will show us the logs data of our application in a pretty way.
 * [Mocha](https://mochajs.org/): Testing JavaScript framework. Mocha is the most popular test tool for JavaScript. I`ve been trying some other alternatives like Jasmine but Mocha has proved to be simplest and more effective.
 * [Chai](https://www.chaijs.com/): Assertion Library. Fits good with Mocha.
-* [Docker & Heroku](https://devcenter.heroku.com/categories/deploying-with-docker): Deploying with Docker and Heroku.  Heroku is a cloud platform
-as a service (PaaS) that supports several programming languages. Heroku supports Node.js so fits good with this application. Also Heroku integrates perfectly with Docker. Docker is a set of platform as a service (PaaS) products that use OS level virtualization. Docker offers us the possibility of separating our application in different containers, ensuring modularization and isolating the different services from the application. Both Heroku and Docker are open source.
+* [Docker](https://www.docker.com/): Docker is a set of platform as a service (PaaS) products that use OS level virtualization. Docker offers us the possibility of separating our application in different containers, ensuring modularization and isolating the different services from the application.
+* [Kubernetes](https://kubernetes.io/): Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.
+Kubernetes is a powerfull container management tool that automates the deployment and management of containers, K8s will help us to orchestrate, scale and provide
+communication across the cluster. We choosed Kubernetes becuase our project is modularized in different containers and that will make easy the deploy on Kubernetes. Also Kubernetes is created by Google, which provides a great community and support in case of problems.
+* [Azure](https://azure.microsoft.com/es-es/services/kubernetes-service/): We choosed Azure for cloud hosting because Azure provides a great integration with kubernetes. 
+Azure has a great documentation for deploying a Kubernetes cluster to their cloud. 
 * [Travis CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/travisci.md): Continuous integration. More information on link.
 * [Circle CI](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/circleci.md). Continuous integration. More information on link.
-
-*Tools version coming soon*.
