@@ -8,11 +8,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Add mongodb to localhost
-          command: npm test
-      - run:
           name: Install package json dependencies
           command: npm install .
+      - run:
+          name: Add mongodb to localhost
+          command: npm test
       - run:
           name: Run test
           command: npm test
