@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:12.10
 #        user: root
       - image: circleci/mongo
-          name: mongodb
+    name: mongodb
     working_directory: ~/IV
     steps:
       - checkout
