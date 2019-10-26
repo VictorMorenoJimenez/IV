@@ -1,12 +1,8 @@
 version: 2
 jobs:
-  build:
+  build_node:
     docker:
       - image: circleci/node:12.10
-      - image: circleci/mongo
-        - run:
-            command: |
-              echo "127.0.0.1  mongodb" >> /etc/hosts
     working_directory: ~/IV
     steps:
       - checkout
@@ -16,3 +12,14 @@ jobs:
       - run:
           name: Run test
           command: npm test
+
+  build_mongo:
+    docker:
+      - image: circleci/mongo       
+    steps:
+      - run:
+          name: Run test
+          command: echo "127.0.0.1  mongodb" >> /etc/hosts
+
+                
+                      
