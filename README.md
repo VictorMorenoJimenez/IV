@@ -52,6 +52,10 @@ Check the test framework and library used for testing [here](https://github.com/
 ## Tool belt
 You can check the tools [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/toolbelt.md)
 
+## Logging system
+To handle the logs of the different containers of the application, we have chosen the EFK stack (Elasticsearch, Fluentd and Kibana). If you want to know how to view the logs with Kibana, [click_here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/kibana.md)
+
+
 ## Usage example
 *Coming soon*.
 
