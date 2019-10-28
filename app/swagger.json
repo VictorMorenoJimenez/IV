@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.2",
+  "swagger": "2.0",
   "info": {
     "version": "0.0.5",
     "title": "FreeDAy",
