@@ -1,4 +1,6 @@
 let City = require('../../models/city');
+let Country = require('../../models/country');
+let State = require('../../models/state');
 let validate = require('../../models/joi');
 const Joi = require('joi')
 
@@ -27,17 +29,62 @@ function getCities(req, res) {
 function getCityByName(req, res) {
     city = req.params.city_name;
     let query = City.find({name: city}, {holidays: 1, _id: 0})
+    let country_holidays;
+    let state_holidays;
 
-    query.exec( (err, city) =>{
+    let query_country = City.find({name: city}, {country: 1, _id: 0});
+    let query_state = City.find({name: city}, {state: 1, _id: 0});
+
+    query_country.exec( (err, city) =>{
         //Check if no errors and send json back
         if(err){
             res.send(err);
             console.log(err);
         }else{
-            console.log("GET /city/" + city + ". Get the holidays from the city " + city);
-            res.status(200).json(city);
+            let query_country = Country.find({name: city[0].country}, {holidays: 1, _id: 0});
+            query_country.exec( (err, holidays) =>{
+                //Check if no errors and send json back
+                if(err){
+                    res.send(err);
+                    console.log(err);
+                }else{
+                    country_holidays = holidays;
+                    query_state.exec( (err, city) =>{
+                        //Check if no errors and send json back
+                        if(err){
+                            res.send(err);
+                            console.log(err);
+                        }else{
+                            let query_state = State.find({name: city[0].state}, {holidays: 1, _id: 0});
+                            query_state.exec( (err, holidays) =>{
+                                //Check if no errors and send json back
+                                if(err){
+                                    res.send(err);
+                                    console.log(err);
+                                }else{
+                                    state_holidays = holidays;
+                                    query.exec( (err, city) =>{
+                                        //Check if no errors and send json back
+                                        if(err){
+                                            res.send(err);
+                                            console.log(err);
+                                        }else{
+                                            console.log("GET /city/" + city + ". Get the holidays from the city " + city);
+                                            res.status(200).json(city.concat(state_holidays.concat(country_holidays)));
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            })
         }
     })
+
+
+
+
 
 }
 
@@ -48,7 +95,7 @@ function newCityHoliday(req, res) {
     var newHoliday = req.body;
     city = req.params.city_name;
     
-    let query = City.updateOne({name: city}, {$addToSet: {holidays: newHoliday, upsert: true}})
+    let query = City.updateOne({name: city}, {$addToSet: {holidays: newHoliday}})
 
     query.exec( (err, holidays) =>{
         //Check if no errors and send json back
