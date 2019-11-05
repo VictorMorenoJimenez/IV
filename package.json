@@ -4,9 +4,10 @@
   "description": "REST API to handle holidays around the world",
   "main": "app.js",
   "scripts": {
-    "start": "node app/app.js",
+    "start": "pm2 start --no-daemon app/app.js",
     "test": "mocha --exit",
-    "stop": "pkill --signal SIGINT FreeDay"
+    "stop": "pm2 stop --no-daemon app/app.js",
+    "restart": "pm2 restart --no-daemon app/app.js"
   },
   "repository": {
     "type": "git",
