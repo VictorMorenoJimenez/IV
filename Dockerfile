@@ -5,8 +5,10 @@ WORKDIR /usr/src/iv
 
 COPY package*.json ./
 #Install all dependencies
-
 RUN npm install
+
+#Install pm2 process manager
+RUN npm install pm2 -g
 
 # Copy all code
 COPY . .
