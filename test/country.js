@@ -20,6 +20,18 @@ describe('Country', () => {
    });      
   });
 
+  describe('GET /status/', () => {
+    it('Returns if the app is running', (done) => {
+      chai.request(server)
+          .get('/country/new')
+          .end((err, res) => {
+                res.body.should.have.property('status')
+                .eql('ok');
+            done();
+          });
+    });
+  });
+
   describe('PUT /country/new', () => {
       it('should create new country', (done) => {
         let n_country = {
