@@ -7,7 +7,7 @@ services:
     links:
       - fluentd
     depends_on:
-      - mongodb
+      - mongo
       - fluentd
     logging:
       driver: "fluentd"
@@ -15,7 +15,7 @@ services:
         fluentd-address: localhost:24224
         tag: node_app
 
-  mongodb:
+  mongo:
     image: mongo
     volumes:
       - ./data:/data/db
