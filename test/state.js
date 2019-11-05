@@ -143,7 +143,7 @@ describe('PUT /state/city/:state_name', () => {
             });
       });
   });
-  describe('GET /state/:state_name', () => {
+  /*describe('GET /state/:state_name', () => {
     it('should get all the holidays from state :state_name', (done) => {
       chai.request(server)
           .get('/state/Islas Baleares')
@@ -153,7 +153,7 @@ describe('PUT /state/city/:state_name', () => {
             done();
           });
     });
-});
+});*/
 
 describe('DELETE /state/:state_name', () => {
   it('should delete the holidays given in POST of state state_name', (done) => {

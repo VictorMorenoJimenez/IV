@@ -117,7 +117,7 @@ describe('PUT /city/:city_name', () => {
       });
   });
 
-  describe('GET /city/:city_name', () => {
+  /*describe('GET /city/:city_name', () => {
     it('should get holidays from city :city_name', (done) => {
       chai.request(server)
           .get('/city/Ibiza')
@@ -127,7 +127,7 @@ describe('PUT /city/:city_name', () => {
             done();
           });
     });
-  });
+  });*/
 
   describe('DELETE /city/:city_name', () => {
     it('should delete the holidays given in POST of city city_name', (done) => {
