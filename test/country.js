@@ -154,15 +154,32 @@ describe('PUT /country/state/:country_name', () => {
 
   describe('GET /country/:country_name', () => {
     it('should get the holidays from the country :country_name', async () => {
-
-      //First create the country
         /*chai.request(server)
         .get('/country/Spain')
         .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('array');
         });*/
+        let country = {
+          name: "Spain",
+          holidays: [
+            {
+              day: 1,
+              month: 1,
+              description: "testHoliday"
+            }
+          ],
+          states: ["State1,State2"]
+        }
 
+        //First we create the a test Country
+        chai.request(server)
+        .put('/country/new')
+        .send(country)
+        .end((err, res) => {
+              res.should.have.status(201);
+        });
+        
         let holidays = await Controller.getCountryHolidays("Spain");
     });
   });
