@@ -20,7 +20,7 @@ describe('State', () => {
    });      
   });
 
-  describe('PUT /state/new', async () => {
+  describe('PUT /state/new', () => {
       it('should create new state', (done) => {
         let n_state = {
           name: "Test State",
@@ -46,7 +46,7 @@ describe('State', () => {
                 res.should.have.status(201);
                 res.body.should.have.property('message')
                 .eql('State successfully added!');
-            done();
+              done();
           });
         } catch(e){
           done(e);
