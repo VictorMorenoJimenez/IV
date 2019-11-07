@@ -15,11 +15,11 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe('Country', () => {
-  beforeEach((done) => { 
+  /*beforeEach((done) => { 
     Country.deleteOne({}, (err) => { 
       done();           
    });      
-  });
+  });*/
 
   describe('GET /status/', () => {
     it('Returns if the app is running', (done) => {
@@ -179,7 +179,7 @@ describe('PUT /country/state/:country_name', () => {
         .end((err, res) => {
               res.should.have.status(201);
         });
-        
+
         let holidays = await Controller.getCountryHolidays("Spain");
     });
   });
