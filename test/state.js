@@ -21,7 +21,7 @@ describe('State', () => {
   });
 
   describe('PUT /state/new', () => {
-      it('should create new state', async(done) => {
+      it('should create new state', (done) => {
         let n_state = {
           name: "Test State",
           holidays: [
@@ -39,19 +39,14 @@ describe('State', () => {
         }
 
       
-          chai.request(server)
+        chai.request(server)
           .put('/state/new')
           .send(n_state)
           .end((err, res) => {
-              try {
-                res.should.have.status(201);
-                res.body.should.have.property('message')
-                .eql('State successfully added!');
-                done();
-              } catch(e){
-                done(err);
-              }
-
+            res.should.have.status(201);
+            res.body.should.have.property('message')
+            .eql('State successfully added!');
+            done();
           });
       });
   });
