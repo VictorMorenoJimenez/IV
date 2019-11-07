@@ -153,7 +153,7 @@ describe('PUT /country/state/:country_name', () => {
   });
 
   describe('GET /country/:country_name', () => {
-    it('should get the holidays from the country :country_name', () => {
+    it('should get the holidays from the country :country_name', async () => {
         /*chai.request(server)
         .get('/country/Spain')
         .end((err, res) => {
@@ -163,6 +163,7 @@ describe('PUT /country/state/:country_name', () => {
 
         try{
           let holidays = await Controller.getCountryHolidays("Spain");
+          holidays.should.be.a('array');
         }catch(e){
           console.log(e)
         }
