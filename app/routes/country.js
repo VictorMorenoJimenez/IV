@@ -1,6 +1,7 @@
 let Country = require('../../models/country');
 let validate = require('../../models/joi');
 const Joi = require('joi')
+const Controller  = require('../controller')
 
 /**
  * GET /status, get status test..
@@ -13,7 +14,6 @@ function getStatus(req, res) {
             "status": "OK"
         }
     )
-
     console.log("Getting sample /status, status OK")
 }
 
@@ -42,20 +42,25 @@ function getCountries(req, res) {
 /**
  * GET /country/:country_name, get all country_name holidays .
  */
-function getCountryHolidays(req, res) {
+async function getCountryHolidays(req, res) {
     country_name = req.params.country_name;
-    let query = Country.find({name: country_name}, {holidays: 1, _id: 0})
 
-    query.exec( (err, country) =>{
+    /*query.exec( (err, country) =>{
         //Check if no errors and send json back
         if(err){
             console.log(err);
             res.send(err);
         } else{
-            res.status(200).json(country);
+            
             console.log("GET /country/" + country_name + ". Get the holidays from the country " + country_name);
         }
-    })
+    })*/
+
+    holidays = await Controller.getCountryHolidays(country_name);
+
+    console.log("GET /country/" + country_name + ". Get the holidays from the country " + country_name);
+    res.status(200).json(holidays);
+
 }
 
 /**
