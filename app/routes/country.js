@@ -56,10 +56,15 @@ async function getCountryHolidays(req, res) {
         }
     })*/
 
-    holidays = await Controller.getCountryHolidays(country_name);
+    try {
+        holidays = await Controller.getCountryHolidays(country_name);
 
-    console.log("GET /country/" + country_name + ". Get the holidays from the country " + country_name);
-    res.status(200).json(holidays);
+        console.log("GET /country/" + country_name + ". Get the holidays from the country " + country_name);
+        res.status(200).json(holidays);
+
+    } catch (e){
+        console.log(e);
+    }
 
 }
 
