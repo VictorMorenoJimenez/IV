@@ -152,17 +152,18 @@ describe('PUT /country/state/:country_name', () => {
 
   describe('GET /country/:country_name', () => {
     it('should get the holidays from the country :country_name', (done) => {
-      try {
         chai.request(server)
         .get('/country/Spain')
         .end((err, res) => {
-              res.should.have.status(200);
-              res.body.should.be.a('array');
-          done();
+          try {
+            res.should.have.status(200);
+            res.body.should.be.a('array');
+            done();
+          } catch(err){
+            done(err);
+          }
         });
-      }catch(e) {
-        done(e);
-      }
+  
     });
   });
 
