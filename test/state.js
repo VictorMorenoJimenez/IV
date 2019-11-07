@@ -50,6 +50,8 @@ describe('State', () => {
       });
   });
 
+  /*
+
   describe('PUT /state/new', () => {
     it('should not create state without name', (done) => {
       let n_state = {
@@ -216,6 +218,6 @@ describe('DELETE /state/delete/:state_name', () => {
         });
   });
 });
-
+*/
 
 });
