@@ -51,7 +51,6 @@ describe('State', () => {
         } catch(e){
           done(e);
         }
-
       });
   });
 
