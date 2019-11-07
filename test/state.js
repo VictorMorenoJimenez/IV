@@ -14,14 +14,14 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe('State', () => {
-  /*beforeEach((done) => { 
+  beforeEach((done) => { 
     State.deleteOne({}, (err) => { 
       done();           
    });      
-  });*/
+  });
 
   describe('PUT /state/new', () => {
-      it('should create new state', (done) => {
+      it('should create new state', async(done) => {
         let n_state = {
           name: "Test State",
           holidays: [
@@ -38,19 +38,21 @@ describe('State', () => {
           ]
         }
 
-        try {
+      
           chai.request(server)
           .put('/state/new')
           .send(n_state)
           .end((err, res) => {
+              try {
                 res.should.have.status(201);
                 res.body.should.have.property('message')
                 .eql('State successfully added!');
-              done();
+                done();
+              } catch(e){
+                done(err);
+              }
+
           });
-        } catch(e){
-          done(e);
-        }
       });
   });
 

@@ -12,7 +12,7 @@ let should = chai.should();
 
 
 chai.use(chaiHttp);
-/*
+
 describe('City', () => {
   beforeEach((done) => { 
     City.deleteOne({}, (err) => { 
@@ -195,4 +195,3 @@ describe('PUT /city/:city_name', () => {
   });
 
 });
-*/
