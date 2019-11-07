@@ -13,11 +13,11 @@ async function getCountryHolidays(country_name){
                 if (err) return handleError(err);
                 return holidays;
             });
+        return holidays[0].holidays;
     }catch(e){
         console.log(e);
     }
 
-    return holidays[0].holidays;
 }
 
 async function getStateHolidays(state_name){
