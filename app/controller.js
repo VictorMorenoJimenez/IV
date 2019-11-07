@@ -7,11 +7,15 @@ let validate = require('../models/joi');
 
 async function getCountryHolidays(country_name){
 
-    holidays = await Country.find({name: country_name}, {holidays: 1, _id: 0},
-        function(err, holidays){
-            if (err) return handleError(err);
-            return holidays;
-        });
+    try{
+        holidays = await Country.find({name: country_name}, {holidays: 1, _id: 0},
+            function(err, holidays){
+                if (err) return handleError(err);
+                return holidays;
+            });
+    }catch(e){
+        console.log(e);
+    }
 
     return holidays[0].holidays;
 }
