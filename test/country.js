@@ -85,7 +85,7 @@ describe('Country', () => {
 describe('PUT /country/new', () => {
   it('should not create country without holidays', (done) => {
     let n_country = {
-      name:"Test",
+      name:"Spain",
       states: [
         "State test1",
         "State test2"
@@ -154,6 +154,8 @@ describe('PUT /country/state/:country_name', () => {
 
   describe('GET /country/:country_name', () => {
     it('should get the holidays from the country :country_name', async () => {
+
+      //First create the country
         /*chai.request(server)
         .get('/country/Spain')
         .end((err, res) => {
