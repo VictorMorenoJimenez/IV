@@ -32,6 +32,7 @@ describe('Country', () => {
     });
   });
 
+  
   describe('PUT /country/new', () => {
       it('should create new country', (done) => {
         let n_country = {
@@ -161,15 +162,8 @@ describe('PUT /country/state/:country_name', () => {
             done();
         });*/
 
-        let holidays = await Controller.getCountryHolidays("Spain");
+        return Controller.getCountryHolidays("Spain");
 
-        holidays.then(() =>{
-          try{
-            done();
-          }catch(error){
-            done(error);
-          }
-        })
     });
   });
 
