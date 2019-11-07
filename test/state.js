@@ -20,7 +20,7 @@ describe('State', () => {
    });      
   });
 
-  describe('PUT /state/new', () => {
+  describe('PUT /state/new', async () => {
       it('should create new state', (done) => {
         let n_state = {
           name: "Test State",
@@ -38,15 +38,20 @@ describe('State', () => {
           ]
         }
 
-        chai.request(server)
-            .put('/state/new')
-            .send(n_state)
-            .end((err, res) => {
-                  res.should.have.status(201);
-                  res.body.should.have.property('message')
-                  .eql('State successfully added!');
-              done();
-            });
+        try {
+          chai.request(server)
+          .put('/state/new')
+          .send(n_state)
+          .end((err, res) => {
+                res.should.have.status(201);
+                res.body.should.have.property('message')
+                .eql('State successfully added!');
+            done();
+          });
+        } catch(e){
+          done(e);
+        }
+
       });
   });
 
