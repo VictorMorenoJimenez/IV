@@ -10,8 +10,11 @@ async function getCountryHolidays(country_name){
     try{
         holidays = await Country.find({name: country_name}, {holidays: 1, _id: 0},
             function(err, holidays){
-                if (err) return handleError(err);
-                return holidays;
+                try{
+                    return holidays;
+                }catch(err){
+                    console.log(err);
+                }
             });
         return holidays[0].holidays;
     }catch(e){
