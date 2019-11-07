@@ -152,7 +152,7 @@ describe('PUT /country/state/:country_name', () => {
   });
 
   describe('GET /country/:country_name', () => {
-    it('should get the holidays from the country Spain', (done) => {
+    it('should get the holidays from the country Spain', async (done) => {
         /*chai.request(server)
         .get('/country/Spain')
         .end((err, res) => {
