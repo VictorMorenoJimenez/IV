@@ -117,17 +117,21 @@ describe('PUT /city/:city_name', () => {
       });
   });
 
-  /*describe('GET /city/:city_name', () => {
-    it('should get holidays from city :city_name', (done) => {
-      chai.request(server)
-          .get('/city/Ibiza')
-          .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('array');
-            done();
-          });
+  describe('GET /city/:city_name', () => {
+    it('should get holidays from city :city_name', async (done) => {
+      try {
+        chai.request(server)
+        .get('/city/Ibiza')
+        .end((err, res) => {
+              res.should.have.status(200);
+              res.body.should.be.a('array');
+              done();
+        });
+      }catch(e){
+        done(e);
+      }
     });
-  });*/
+  });
 
   describe('DELETE /city/:city_name', () => {
     it('should delete the holidays given in POST of city city_name', (done) => {
