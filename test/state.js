@@ -14,11 +14,11 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe('State', () => {
-  beforeEach((done) => { 
+  /*beforeEach((done) => { 
     State.deleteOne({}, (err) => { 
       done();           
    });      
-  });
+  });*/
 
   describe('PUT /state/new', () => {
       it('should create new state', (done) => {
