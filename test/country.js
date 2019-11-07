@@ -4,6 +4,7 @@ process.env.NODE_ENV = 'test';
 
 let mongoose = require("mongoose");
 let Country = require("../models/country");
+let Controller = require("../app/controller")
 
 let chai = require("chai");
 let chaiHttp = require('chai-http');
@@ -151,8 +152,8 @@ describe('PUT /country/state/:country_name', () => {
   });
 
   describe('GET /country/:country_name', () => {
-    it('should get the holidays from the country :country_name', (done) => {
-        chai.request(server)
+    it('should get the holidays from the country Spain', (done) => {
+        /*chai.request(server)
         .get('/country/Spain')
         .end((err, res) => {
           try {
@@ -162,7 +163,13 @@ describe('PUT /country/state/:country_name', () => {
           } catch(err){
             done(err);
           }
-        });
+        });*/
+        try{
+          let holidays = await Controller.getCountryHolidays("Spain");
+        } catch(e){
+          done(e);
+        }
+        
   
     });
   });
