@@ -9,7 +9,8 @@ const port = 8080;
 const host = '0.0.0.0';
 //const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
 //const dbhost = "mongodb://mongodb:27017"
-const dbhost = "mongodb://mongodb:27017"
+//const dbhost = "mongodb://mongodb:27017"
+const dbhost = "mongodb://mongo:27017"
 
 process.title = "FreeDay";
 const dotenv = require('dotenv');
@@ -74,9 +75,13 @@ app.route("/country/state/:country_name")
   .put(country.addState);
 
 app.route("/country/:country_name")
-  .get(country.getCountryHolidays)
   .put(country.newCountryHoliday)
   .delete(country.deleteHoliday);
+
+
+app.route("/country/:country_name")
+    .get(country.getCountryHolidays)
+
 
 app.route("/country/delete/:country_name")
     .delete(country.deleteCountry)
