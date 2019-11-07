@@ -24,16 +24,25 @@ async function getCountryHolidays(country_name){
 }
 
 async function getStateHolidays(state_name){
-    holidays_state = await State.find({name: state_name}, {_id: 0},
-        function(err, holidays){
-            if (err) return handleError(err);
-            return holidays;
-        });
+    try{
+        holidays_state = await State.find({name: state_name}, {_id: 0},
+            function(err, holidays){
+                if (err) return handleError(err);
+                return holidays;
+            });
+    } catch(e){
+        console.log(e);
+    }
 
-    console.log(holidays_state[0].country);
-    holidays_country = await getCountryHolidays(holidays_state[0].country)
 
-    return holidays_country.concat(holidays_state[0].holidays);
+    //console.log(holidays_state[0].country);
+    try{
+
+    } catch(e){
+        holidays_country = await getCountryHolidays(holidays_state[0].country)
+        return holidays_country.concat(holidays_state[0].holidays);
+    }
+
 }
 
 async function getCityHolidays(city_name){
