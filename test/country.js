@@ -12,7 +12,7 @@ let should = chai.should();
 
 
 chai.use(chaiHttp);
-
+/*
 describe('Country', () => {
   beforeEach((done) => { 
     Country.deleteOne({}, (err) => { 
@@ -226,4 +226,4 @@ describe('PUT /country/state/:country_name', () => {
   });
 
 });
-
+*/
