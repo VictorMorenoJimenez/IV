@@ -163,7 +163,6 @@ describe('PUT /country/state/:country_name', () => {
 
         try{
           let holidays = await Controller.getCountryHolidays("Spain");
-          holidays.should.be.a('array');
         }catch(e){
           console.log(e)
         }
