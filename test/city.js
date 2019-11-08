@@ -144,7 +144,7 @@ describe('PUT /city/:city_name', () => {
           });
 
       try{
-        let holidays = await Controller.getCityHolidays("Test City");
+        let holidays = await Controller.getCityHolidays("Ibiza");
       }catch(e){
         console.log(e);
       }
