@@ -74,6 +74,8 @@ To set up a development envirorment and contribute you just have to follow the I
     * Completed Documentation.
 * 0.5
     * Completed API Rest, Dockerized App, Completed Endpoints Tests
+* 0.6
+    * Added pm2 and proper build tool configuration, modified some endpoints 
 
 ## Meta
 
