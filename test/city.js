@@ -18,8 +18,8 @@ describe('City', () => {
   /*beforeEach((done) => { 
     City.deleteOne({}, (err) => { 
       done();           
-   });*/      
-  });
+   });      
+  });*/
 
   describe('PUT /city/new', () => {
       it('should create new city', (done) => {
@@ -216,3 +216,4 @@ describe('PUT /city/:city_name', () => {
           });
     });
   });
+});
