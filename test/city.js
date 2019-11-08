@@ -143,7 +143,11 @@ describe('PUT /city/:city_name', () => {
                 .eql('City successfully added!');
           });
 
-      let holidays = await Controller.getCityHolidays("Test City");
+      try{
+        let holidays = await Controller.getCityHolidays("Test City");
+      }catch(e){
+        console.log(e);
+      }
 
       //Now if everything is correct we delete it
       chai.request(server)
