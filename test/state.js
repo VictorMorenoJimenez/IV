@@ -147,7 +147,7 @@ describe('PUT /state/city/:state_name', () => {
             });
       });
   });
-  describe('GET /state/:state_name', () => {
+  /*describe('GET /state/:state_name', () => {
     it('should get all the holidays from state :state_name', async () => {
       let state = {
         holidays: [],
@@ -177,7 +177,7 @@ describe('PUT /state/city/:state_name', () => {
         res.should.have.status(200);
       });
     });
-});
+});*/
 
 describe('DELETE /state/:state_name', () => {
   it('should delete the holidays given in POST of state state_name', (done) => {

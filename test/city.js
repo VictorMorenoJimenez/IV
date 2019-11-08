@@ -118,7 +118,7 @@ describe('PUT /city/:city_name', () => {
       });
   });
 
-  describe('GET /city/:city_name', () => {
+  /*describe('GET /city/:city_name', () => {
     it('should get holidays from city :city_name',  async () => {
       try{
         let holidays = await Controller.getCityHolidays("Test City");
@@ -134,7 +134,7 @@ describe('PUT /city/:city_name', () => {
         console.log(e);
       }
     });
-  });
+  });*/
 
   describe('DELETE /city/:city_name', () => {
     it('should delete the holidays given in POST of city city_name', (done) => {
