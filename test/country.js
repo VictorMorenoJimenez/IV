@@ -181,10 +181,19 @@ describe('PUT /country/state/:country_name', () => {
         });
 
         let holidays = await Controller.getCountryHolidays("Spain");
-    });
+
+        // To finish we delete the created country
+        chai.request(server)
+        .delete('/country/Spain')
+        .send(holidays)
+        .end((err, res) => {
+              res.should.have.status(200);
+          done();
+        });
+      });
   });
 
-  /*
+  
   describe('DELETE /country/:country_name', () => {
     it('should delete the holidays given in POST of country country_name', (done) => {
       let holidays = {
@@ -242,7 +251,7 @@ describe('PUT /country/state/:country_name', () => {
             done();
           });
     });
-  });*/
+  });
 
 });
 
