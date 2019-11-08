@@ -23,7 +23,7 @@ async function getCities(req, res) {
 
     cities = await Controller.getCities();
     console.log("Get /city get all the cities from DB");
-    res.status(200).json(cities);
+    res.status(200).json(cities[0]);
 }
 
 /**
