@@ -158,13 +158,13 @@ describe('PUT /state/city/:state_name', () => {
         ]
       }
 
+      //First we create the state
       chai.request(server)
           .put('/state/new')
           .send(state)
           .end((err, res) => {
                 res.body.should.have.property('message')
                 .eql('child \"name\" fails because [Name is required and must be String]');
-            done();
           });
 
       let holidays = await Controller.getStateHolidays("StateTest");
