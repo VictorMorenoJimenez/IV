@@ -82,5 +82,5 @@ async function getCities(){
 
 
 
-module.exports = { getCountryHolidays, getStateHolidays, getCityHolidays }
+module.exports = { getCountryHolidays, getStateHolidays, getCityHolidays, getCities}
 
