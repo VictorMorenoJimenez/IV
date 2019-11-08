@@ -119,7 +119,7 @@ describe('PUT /city/:city_name', () => {
   });
 
   describe('GET /city/:city_name', () => {
-    it('should get holidays from city :city_name', async (done) => {
+    it('should get holidays from city :city_name', async () => {
       //First we create the city we are going to get.
       let city = {
         name: "testCity",
