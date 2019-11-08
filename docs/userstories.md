@@ -6,6 +6,8 @@ This project is designed for people around the world to collaborate. That is why
 ## Normal API user
 1. As a user I can add a new holiday to a country, state or city.
 2. As a user I can add a new country, state or city.
+3. As a user I can get the holidays from a country state or city.
+4. As a user I can get the whole information about country, state or city.
 
 ## Admin user
 Admin users will be responsible for confirming requests for deletion of information. So a normal user will have to make a request to an admin for delete data.
