@@ -122,7 +122,7 @@ describe('PUT /city/:city_name', () => {
     it('should get holidays from city :city_name', async () => {
       //First we create the city we are going to get.
       let city = {
-        name: "testCity",
+        name: "citytest",
         country: "testCountry",
         state: "testState",
         holidays: [
@@ -143,11 +143,11 @@ describe('PUT /city/:city_name', () => {
         .eql('City successfully added!');
       });
 
-      let holidays = await Controller.getCityHolidays("testCity");
+      let holidays = await Controller.getCityHolidays("citytest");
 
       //Now if everything is correct we delete it
       chai.request(server)
-      .delete('/city/delete/testCity')
+      .delete('/city/delete/citytest')
       .end((err, res) => {
             res.should.have.status(200)
             res.body.should.have.property('message')
