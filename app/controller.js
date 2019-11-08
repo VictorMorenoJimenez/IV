@@ -2,9 +2,6 @@ let State = require('../models/state');
 let Country = require('../models/country');
 let City = require('../models/city');
 
-let validate = require('../models/joi');
-
-
 async function getCountryHolidays(country_name){
 
     try{
@@ -65,10 +62,25 @@ async function getCityHolidays(city_name){
     } catch(e){
         console.log(e);
     }
-
-    
-
 }
+
+async function getCities(){
+    try{
+        cities = await City.find({name: city_name}, {_id: 0},
+            function(err, cities){
+                if (err){
+                    console.log(err);
+                    return handleError(err);
+                } 
+                return cities;
+            });
+    }catch(e){
+        console.log(e);
+    }
+}
+
+
+
 
 module.exports = { getCountryHolidays, getStateHolidays, getCityHolidays }
 
