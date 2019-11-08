@@ -1,4 +1,23 @@
+# Build tool
+The package.json is the heart of a Node.js project. Package.json file holds the project metadata and how the project it's build.
+
+# Npm Scripts
+Npm has a run command that can run scripts defined in the scripts property in the package.json. We can concat commands to build our project, in our case the scripts section of package.json is very simple, using **pm2** as process manager.
+
+```
+  "scripts": {
+    "start": "pm2 start app/app.js",
+    "test": "mocha --exit",
+    "stop": "pm2 stop app/app.js",
+    "restart": "pm2 restart  app/app.js"
+  },
+```
+
+As we can see we use pm2 to manage the start, stop and restart the application.
+
+
 # Package.json Dependencies
+
 ```
   "dependencies": {
     "body-parser": "^1.19.0",
