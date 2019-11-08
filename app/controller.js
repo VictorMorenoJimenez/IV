@@ -31,8 +31,6 @@ async function getStateHolidays(state_name){
         console.log(e);
     }
 
-
-    //console.log(holidays_state[0].country);
     try{
         holidays_country = await getCountryHolidays(holidays_state[0].country)
         return holidays_country.concat(holidays_state[0].holidays);
@@ -52,9 +50,6 @@ async function getCityHolidays(city_name){
     } catch(e){
         console.log(e);
     }
-
-
-    console.log(city[0].country + " " + city[0].state);
 
     try{
         holidays_state = await getStateHolidays(city[0].state);
