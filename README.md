@@ -41,7 +41,7 @@ More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dock
 ## Build 
 buildtool: package.json
 
-All the npm packages used on this project can be checked [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dependencies.md)
+Build tool documentation can be found [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dependencies.md)
 
 ## APi Design
 Check your API endpoints [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/apidesign.md). and user stories [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/userstories.md).
