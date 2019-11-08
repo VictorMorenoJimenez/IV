@@ -188,7 +188,6 @@ describe('PUT /country/state/:country_name', () => {
         .send(holidays)
         .end((err, res) => {
               res.should.have.status(200);
-          done();
         });
       });
   });
