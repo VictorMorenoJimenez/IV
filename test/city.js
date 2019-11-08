@@ -119,24 +119,17 @@ describe('PUT /city/:city_name', () => {
   });
 
   describe('GET /city/:city_name', () => {
-    it('should get holidays from city :city_name',  (done) => {
+    it('should get holidays from city :city_name',  async () => {
       try{
-        let holidays = Controller.getCityHolidays("Test City");
-        holidays.then(function(res){
-          try{
-            //Now if everything is correct we delete it
-            chai.request(server)
-            .delete('/city/delete/Test City')
-            .end((err, res) => {
-                  res.should.have.status(200)
-                  res.body.should.have.property('message')
-                  .eql("City removed successfully")
-                  done();
-            });
-          }catch(e){
-            console.log(e);
-          }
-        })
+        let holidays = await Controller.getCityHolidays("Test City");
+        //Now if everything is correct we delete it
+        chai.request(server)
+        .delete('/city/delete/Test City')
+        .end((err, res) => {
+              res.should.have.status(200)
+              res.body.should.have.property('message')
+              .eql("City removed successfully")
+        });
       }catch(e){
         console.log(e);
       }
