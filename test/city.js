@@ -216,5 +216,3 @@ describe('PUT /city/:city_name', () => {
           });
     });
   });
-
-});*/
