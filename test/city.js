@@ -120,29 +120,6 @@ describe('PUT /city/:city_name', () => {
 
   describe('GET /city/:city_name', () => {
     it('should get holidays from city :city_name',  (done) => {
-      //First we create the city we are going to get.
-      let n_city = {
-        name: "Test City",
-        holidays: [
-          {
-            day: 1,
-            month: 1,
-            description: "Test"
-          }
-        ],
-        state: "StateTEst",
-        country: "Country Test"
-      }
-
-      chai.request(server)
-          .put('/city/new')
-          .send(n_city)
-          .end((err, res) => {
-                res.should.have.status(201);
-                res.body.should.have.property('message')
-                .eql('City successfully added!');
-          });
-
       try{
         let holidays = Controller.getCityHolidays("Test City");
         holidays.then(function(res){
