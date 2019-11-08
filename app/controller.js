@@ -64,21 +64,8 @@ async function getCityHolidays(city_name){
     }
 }
 
-function getCities(){
-    let query = City.find({});
-
-    query.exec( (err, cities) =>{
-        //Check if no errors and send json back
-        if(err){
-            console.log(err);
-        }else{
-            return cities;
-        }
-    })
-}
 
 
 
-
-module.exports = { getCountryHolidays, getStateHolidays, getCityHolidays, getCities}
+module.exports = { getCountryHolidays, getStateHolidays, getCityHolidays}
 

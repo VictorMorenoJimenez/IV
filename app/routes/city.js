@@ -1,4 +1,6 @@
 let City = require('../../models/city');
+let Country = require('../../models/country');
+let State = require('../../models/state');
 let validate = require('../../models/joi');
 const Controller  = require('../controller')
 const Joi = require('joi')
@@ -8,9 +10,9 @@ const Joi = require('joi')
  */
 
 function getCities(req, res) {
-    //let query = City.find({});
+    let query = City.find({});
 
-    /*query.exec( (err, cities) =>{
+    query.exec( (err, cities) =>{
         //Check if no errors and send json back
         if(err){
             res.send(err);
@@ -19,11 +21,7 @@ function getCities(req, res) {
             console.log("Get /city get all the cities from DB");
             res.status(200).json(cities);
         }
-    })*/
-
-    cities = Controller.getCities();
-    console.log("Get /city get all the cities from DB");
-    res.status(200).json(cities);
+    })
 }
 
 /**
@@ -36,6 +34,8 @@ async function getCityByName(req, res) {
 
     console.log("GET /city/" + city + ". Get the holidays from the city " + city);
     res.status(200).json(holidays);
+
+
 }
 
 /**
