@@ -37,24 +37,33 @@ async function getStateHolidays(state_name){
 
     //console.log(holidays_state[0].country);
     try{
-
-    } catch(e){
         holidays_country = await getCountryHolidays(holidays_state[0].country)
         return holidays_country.concat(holidays_state[0].holidays);
+    } catch(e){
+        console.log(e);
     }
 
 }
 
 async function getCityHolidays(city_name){
-    city = await City.find({name: city_name}, {_id: 0},
-        function(err, holidays){
-            if (err) return handleError(err);
-            return holidays;
-        });
+    try{
+        city = await City.find({name: city_name}, {_id: 0},
+            function(err, holidays){
+                if (err) return handleError(err);
+                return holidays;
+            });
+    } catch(e){
+        console.log(e);
+    }
+
 
     console.log(city[0].country + " " + city[0].state);
-    holidays_state = await getStateHolidays(city[0].state);
 
+    try{
+        holidays_state = await getStateHolidays(city[0].state);
+    } catch(e){
+        console.log(e);
+    }
 
     return city[0].holidays.concat(holidays_state);
 
