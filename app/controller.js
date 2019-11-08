@@ -64,19 +64,17 @@ async function getCityHolidays(city_name){
     }
 }
 
-async function getCities(){
-    try{
-        cities = await City.find({name: city_name}, {_id: 0},
-            function(err, cities){
-                if (err){
-                    console.log(err);
-                    return handleError(err);
-                } 
-                return cities;
-            });
-    }catch(e){
-        console.log(e);
-    }
+function getCities(){
+    let query = City.find({});
+
+    query.exec( (err, cities) =>{
+        //Check if no errors and send json back
+        if(err){
+            console.log(err);
+        }else{
+            return cities;
+        }
+    })
 }
 
 

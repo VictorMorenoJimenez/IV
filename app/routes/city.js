@@ -7,7 +7,7 @@ const Joi = require('joi')
  * GET /city, get all the cities.
  */
 
-async function getCities(req, res) {
+function getCities(req, res) {
     //let query = City.find({});
 
     /*query.exec( (err, cities) =>{
@@ -21,9 +21,9 @@ async function getCities(req, res) {
         }
     })*/
 
-    cities = await Controller.getCities();
+    cities = Controller.getCities();
     console.log("Get /city get all the cities from DB");
-    res.status(200).json(cities[0]);
+    res.status(200).json(cities);
 }
 
 /**
