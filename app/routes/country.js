@@ -13,37 +13,30 @@ function getStatus(req, res) {
         {
             "status": "OK",
             "test": "GET /country/France",
-
             "_id": "5dc859abb9e1920012e8fd0c",
             "day": 1,
             "month": 1,
             "description": "New year",
-
             "_id": "5dc859abb9e1920012e8fd0b",
             "day": 22,
             "month": 4,
             "description": "Easter Monday",
-
             "_id": "5dc859abb9e1920012e8fd0a",
             "day": 1,
             "month": 5,
             "description": "Labour Day",
-
             "_id": "5dc859abb9e1920012e8fd09",
             "day": 8,
             "month": 5,
             "description": "VE Day",
-    
             "_id": "5dc859abb9e1920012e8fd08",
             "day": 30,
             "month": 5,
             "description": "Ascension Day",
-    
             "_id": "5dc859abb9e1920012e8fd07",
             "day": 15,
             "month": 8,
             "description": "Assumption of the Blessed Virgin Mary"
-            
         }
     )
     console.log("Getting sample /status, status OK")
