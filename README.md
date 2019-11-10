@@ -41,6 +41,9 @@ To run the server
 You can also run FreeDay in Docker containers!
 More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/docker.md)
 
+## Deploy
+For deploying our project we choosed Azure because it gives you 100$ of free credits if you have a proper student license. We choosed to deploy our app on a Kubernetes cluster, the full process and explanation [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/kubernetes.md)
+
 ## Build 
 buildtool: package.json
 
@@ -96,4 +99,3 @@ Distributed under the GNU General Public License v3.0 license. See ``LICENSE`` f
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
