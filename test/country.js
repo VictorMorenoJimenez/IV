@@ -2,24 +2,17 @@
 
 process.env.NODE_ENV = 'test';
 
-let mongoose = require("mongoose");
-let Country = require("../models/country");
 let Controller = require("../app/controller")
 
 let chai = require("chai");
 let chaiHttp = require('chai-http');
 let server = require('../app/app');
-let should = chai.should();
+
 
 
 chai.use(chaiHttp);
 
 describe('Country', () => {
-  /*beforeEach((done) => { 
-    Country.deleteOne({}, (err) => { 
-      done();           
-   });      
-  });*/
 
   describe('GET /status/', () => {
     it('Returns if the app is running', (done) => {
@@ -154,12 +147,7 @@ describe('PUT /country/state/:country_name', () => {
 
   describe('GET /country/:country_name', () => {
     it('should get the holidays from the country :country_name', async () => {
-        /*chai.request(server)
-        .get('/country/Spain')
-        .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('array');
-        });*/
+
         let country = {
           name: "Spain",
           holidays: [

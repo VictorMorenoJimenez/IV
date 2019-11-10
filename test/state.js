@@ -1,25 +1,16 @@
 //Test envirorment
 
 process.env.NODE_ENV = 'test';
-let Controller = require("../app/controller")
-
-let mongoose = require("mongoose");
-let State = require("../models/state");
-
 let chai = require("chai");
 let chaiHttp = require('chai-http');
 let server = require('../app/app');
-let should = chai.should();
+
 
 
 chai.use(chaiHttp);
 
 describe('State', () => {
-  /*beforeEach((done) => { 
-    State.deleteOne({}, (err) => { 
-      done();           
-   });      
-  });*/
+
 
   describe('PUT /state/new', () => {
       it('should create new state', (done) => {
@@ -147,37 +138,6 @@ describe('PUT /state/city/:state_name', () => {
             });
       });
   });
-  /*describe('GET /state/:state_name', () => {
-    it('should get all the holidays from state :state_name', async () => {
-      let state = {
-        holidays: [],
-        country: "StateTest",
-        cities: [
-          "City test1",
-          "City test2"
-        ]
-      }
-
-      //First we create the state
-      chai.request(server)
-          .put('/state/new')
-          .send(state)
-          .end((err, res) => {
-                res.body.should.have.property('message')
-                .eql('child \"name\" fails because [Name is required and must be String]');
-          });
-
-      let holidays = await Controller.getStateHolidays("StateTest");
-
-      //Now we delete it 
-      chai.request(server)
-      .delete('/state/StateTest')
-      .send(holidays)
-      .end((err, res) => {
-        res.should.have.status(200);
-      });
-    });
-});*/
 
 describe('DELETE /state/:state_name', () => {
   it('should delete the holidays given in POST of state state_name', (done) => {

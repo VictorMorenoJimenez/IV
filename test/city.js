@@ -15,11 +15,6 @@ let Controller = require("../app/controller");
 chai.use(chaiHttp);
 
 describe('City', () => {
-  /*beforeEach((done) => { 
-    City.deleteOne({}, (err) => { 
-      done();           
-   });      
-  });*/
 
   describe('PUT /city/new', () => {
       it('should create new city', (done) => {
@@ -117,24 +112,6 @@ describe('PUT /city/:city_name', () => {
             });
       });
   });
-
-  /*describe('GET /city/:city_name', () => {
-    it('should get holidays from city :city_name',  async () => {
-      try{
-        let holidays = await Controller.getCityHolidays("Test City");
-        //Now if everything is correct we delete it
-        chai.request(server)
-        .delete('/city/delete/Test City')
-        .end((err, res) => {
-              res.should.have.status(200)
-              res.body.should.have.property('message')
-              .eql("City removed successfully")
-        });
-      }catch(e){
-        console.log(e);
-      }
-    });
-  });*/
 
   describe('DELETE /city/:city_name', () => {
     it('should delete the holidays given in POST of city city_name', (done) => {
