@@ -47,10 +47,14 @@ const options = {
 if( process.env.NODE_ENV != 'TEST_CI'){
   //test database
   dbhost = "mongodb://mongodb:27017";
+}else if(process.env.NODE_ENV == 'HEROKU'){
+  dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
 }else{
   //production database
   dbhost = "mongodb://mongo:27017";
 }
+
+dbhost = "mongodb://mongo:27017"
 
 
 
