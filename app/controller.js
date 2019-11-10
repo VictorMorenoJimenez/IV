@@ -60,7 +60,5 @@ async function getCityHolidays(city_name){
 }
 
 
-
-
 module.exports = { getCountryHolidays, getStateHolidays, getCityHolidays}
 
