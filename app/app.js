@@ -10,7 +10,7 @@ const host = '0.0.0.0';
 //const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
 //const dbhost = "mongodb://mongodb:27017"
 //const dbhost = "mongodb://mongodb:27017"
-const dbhost = "mongodb://mongodb:27017"
+const dbhost = "mongodb://mongo:27017"
 
 process.title = "FreeDay";
 const dotenv = require('dotenv');
@@ -42,16 +42,16 @@ const options = {
   family: 4 // Use IPv4, skip trying IPv6
 };
 
-/*
+
 //db connection      
-if( process.env.NODE_ENV != 'test'){
-  //production database
-  dbhost = process.env.DBHost;
-}else{
+if( process.env.NODE_ENV != 'TEST_CI'){
   //test database
-  dbhost = process.env.DBHost_test;
+  dbhost = "mongodb://mongodb:27017";
+}else{
+  //production database
+  dbhost = "mongodb://mongo:27017";
 }
-*/
+
 
 
 // DB Connection
