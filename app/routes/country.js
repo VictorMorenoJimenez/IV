@@ -11,7 +11,8 @@ function getStatus(req, res) {
 
     res.status(200).json(
         {
-            "status": "OK"
+            "status": "OK",
+            "test": "GET /country/Spain"
         }
     )
     console.log("Getting sample /status, status OK")
