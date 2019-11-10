@@ -177,7 +177,7 @@ If you did correctly the step Create private registy and login you could easy up
 
 ![pushedImage](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/pushedImageRepo.png)
 
-## Deployments
+## Deployments and Deploy
 Now that we have our cluster created with the resource group and our private and images uploads we will deploy our kubernetes cluster.
 
 To manage the K8s cluster we need kubectl, and the proper credentials. Having kubectl installed we can get the credentials like this:
@@ -199,12 +199,185 @@ Now if you type
     kubectl get secret
 ```
 
-![pushedImage](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/getSecretKubectl.png)
+![getSecret](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/getSecretKubectl.png)
 
 Now we are ready to deploy Pods on kubernetes!
 
 ### Node app
+This is not a Kubernetes course so, we won't explain the whole deployment files. But a deployment file will define the resources that the pod will need like replicas or CPU's or RAM. Also we can define persistent volumes and Load balancers.
+
+For our node app we define one Service that will work as load Balancer and a Deployment that will be a running pod with our app.
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels:
+    name: web
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    name: web
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: web
+  name: web-controller
+spec:
+  replicas: 2
+  selector:
+    name: web
+  template:
+    metadata:
+      labels:
+        name: web
+    spec:
+      containers:
+      - image: freedaycontainer2.azurecr.io/images/node_app 
+        name: web
+        ports:
+        - containerPort: 8080 
+          name: http-server
+      imagePullSecrets:
+      - name: regsecret3
+```
+
+As you can see, the loadBalancer will target the port 80 of the server and link it to the 8080 of the pod. We defined 2 replicas.
+
+With this file deploy to Kubernetes it's really simple, simply type:
+
+```
+    kubectl apply -f node_app.yaml
+```
+
+In a few seconds the pods are ready:
+
+![getPods](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/kubectlGetPods.png)
+
 
 ### MongoDB
 
-## Deploy Project on K8s cluster
+For the MongoDB, we will need aswell a Service that will act as Load Balancer.
+Binding the ports and making the pod accessible for other pods.
+
+Also we are creating a persistent volume storage, so that we won't lose the data stored on the DB.
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: mongo
+  name: mongo
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    name: mongo
+    
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: mongo
+  name: mongo-controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: mongo
+    spec:
+      containers:
+      - image: mongo
+        name: mongo
+        ports:
+        - name: mongo
+          containerPort: 27017
+          hostPort: 27017
+        volumeMounts:
+            - name: mongo-persistent-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongo-persistent-storage
+          persistentVolumeClaim:
+            claimName: azure-managed-disk 
+```
+
+In this case first we need to create the persistentVolumeClaim, again with a .yaml file we create it:
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: default
+  resources:
+    requests:
+      storage: 50Gi
+```
+
+```
+    kubectl apply -f persistenVolume.yaml
+```
+
+In a few seconds we have our volume created:
+![azureClaim](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/createClaimAzure.png)
+
+Once the claim it's created we can deploy the mongodb .yaml file:
+
+```
+    kubectl apply -f mongoDB.yaml
+```
+
+![mongoPods](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/mongogetPods.png)
+
+## Testing project
+
+Finally we have our app running on a Kubernetes cluster.
+Kubernetes gives us a public ip to reach our app. If we type
+```
+    kubectl get all
+```
+
+![getAll](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/kubectlGetALL.png)
+
+We can see that, in this case it gives us the ip : 51.143.126.204
+
+So we can test if our app is running, we will test the app with POSTMAN.
+
+First a simply GET /status
+
+![getStatus](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/postmanGetStatus.png)
+
+Now let's make a query that access to MongoDB app to see if it's working:
+
+First we need to create some data because the DB is empty. So we create a country with it's holidays.
+
+![createCountry](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/createCountryDemo.png)
+
+Now let's see if it's added correctly. Let's Get the country holidays:
+
+![getHolidaysCountry](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/getCountryHolidaysDemo.png)
+
+
+Now if we want to delete de pods, we just need to type
+
+```
+    kubectl delete -f mongo.yaml
+    kubectl delete -f node.yaml
+```
+
