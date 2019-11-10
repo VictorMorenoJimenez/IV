@@ -165,7 +165,7 @@ Also built from the official kibana Docker image.
 Before running the docker-compose up script, we have to change the permisson of the folder elasticsearch, run the following command on a terminal:
 
 ```bash
-	chown -R `whoami`:`whoami` elasticsearch	
+  chown -R `whoami`:`whoami` elasticsearch	
 ```
 
 Also we have to check if any of the used ports in the docker-compose file, are in use by the host.
@@ -187,6 +187,7 @@ So now we have everything setup we just have to open a terminal and run:
 Once the script is over, we have the 5 containers running. We can check that with the command docker ps:
 
 ![running_containers](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/containers_running.png)
+
 Remember that if we change something on the node app, we will have to build again the node_app image.
 
 
