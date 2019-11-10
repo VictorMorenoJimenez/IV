@@ -8,6 +8,10 @@ jobs:
     working_directory: ~/IV
     steps:
       - checkout
+      - run: 
+          name: "Set up ENV"
+          command: |
+            echo 'export NODE_ENV="TEST_CI"' >> $BASH_ENV
       - run:
           name: Install package json dependencies
           command: npm install .
