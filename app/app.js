@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const country = require("./routes/country");
 const state = require("./routes/state");
 const city = require("./routes/city");
-const port = 8080;
+const port = 80;
 const host = '0.0.0.0';
 //const dbhost = "mongodb+srv://conan:runescape12@freedaycluster-zxp2d.mongodb.net/test?retryWrites=true&w=majority"
 //const dbhost = "mongodb://mongodb:27017"
@@ -53,9 +53,6 @@ if( process.env.NODE_ENV != 'TEST_CI'){
   //production database
   dbhost = "mongodb://mongo:27017";
 }
-
-dbhost = "mongodb://mongo:27017"
-
 
 
 // DB Connection
