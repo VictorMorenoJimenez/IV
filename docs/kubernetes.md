@@ -171,10 +171,37 @@ First let's tag the image:
 
 We don't need to upload the mongoDB image because we are using the official one.
 
-Once you tagged the image, you can simply push the image to the private registry.
+Once you tagged the image, you can simply push the image to the private registry. 
+
+If you did correctly the step Create private registy and login you could easy upload your image:
+
+![pushedImage](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/pushedImageRepo.png)
 
 ## Deployments
-Now that we have our cluster created with the resource group and our private 
+Now that we have our cluster created with the resource group and our private and images uploads we will deploy our kubernetes cluster.
+
+To manage the K8s cluster we need kubectl, and the proper credentials. Having kubectl installed we can get the credentials like this:
+
+```
+    az aks get-credentials --resource-group resource-iv2 --name FreeDayIV2
+```
+
+First of all, in order to let Kubernetes cluster use the Docker secrets, we have to create a secret that we will use to build our node_app container:
+
+```
+kubectl create secret docker-registry regsecret3 --docker-server=freedaycontainer2.azurecr.io --docker-username=user --docker-password=password
+--docker-email=mail
+```
+You can get credentials from the same place explained in Upload images to private registry.
+
+Now if you type 
+```
+    kubectl get secret
+```
+
+![pushedImage](https://github.com/VictorMorenoJimenez/IV/tree/master/docs/images/getSecretKubectl.png)
+
+Now we are ready to deploy Pods on kubernetes!
 
 ### Node app
 
