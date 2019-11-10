@@ -4,6 +4,8 @@ node_js:
   - "8"
   - "10"
   - "12"
+env:
+  - NODE_ENV=TEST_CI
 services: mongodb
 cache:
   directories:
