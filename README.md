@@ -20,23 +20,7 @@ The main goal of this project is that you can easily get the holidays from a cit
 
 ## Install
 
-To install this project in your server and run it you just have to follow this steps:
-
-```git
-    git clone git@github.com:VictorMorenoJimenez/IV.git
-```
-
-To install all dependencies on package.json run:
-
-```JavaScript
-    npm install
-```
-
-To run the server 
-
-```JavaScript
-    npm start
-```
+To install this project in your server and run it you just have to follow this [steps](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/install.md)
 
 You can also run FreeDay in Docker containers!
 More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/docker.md)
@@ -49,7 +33,8 @@ For deploying our project we choosed Azure because it gives you 100$ of free cre
 Kubernetes it's a great solution but too complex and expensive for our project. So we decided to deploy our dockerized project to an Azure VM. You can see the whole process [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md)
 
 ### Deployment on Heroku
-The easiest way and the fastest method to deploy the project it's with Heroku. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md) how to deploy on Heroku!
+The easiest way and the fastest method to deploy the project it's with Heroku.
+But it's not a real solution for real production projects. But a good way to test projects in the cloud. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md) how to deploy on Heroku!
 
 ## Build 
 buildtool: package.json
@@ -90,7 +75,7 @@ To set up a development envirorment and contribute you just have to follow the I
 * 0.6
     * Added pm2 and proper build tool configuration, modified some endpoints 
 * 0.7
-    * Deployment on Azure     
+    * Deployment on Azure and Heroku    
 
 ## Meta
 
