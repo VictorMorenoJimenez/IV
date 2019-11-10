@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "Log in the web browser"
 heroku login
+echo "Create Heroku app"
+heroku create freedayAPI
 echo "Log in the container of heroku"
 heroku container:login
 echo "@@@@@@@@@@@@@@@@@@@@@ Building image @@@@@@@@@@@@@@@@@@@"
