@@ -48,6 +48,9 @@ For deploying our project we choosed Azure because it gives you 100$ of free cre
 ### Deployment on Azure VM
 Kubernetes it's a great solution but too complex and expensive for our project. So we decided to deploy our dockerized project to an Azure VM. You can see the whole process [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md)
 
+### Deployment on Heroku
+The easiest way and the fastest method to deploy the project it's with Heroku. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md) how to deploy on Heroku!
+
 ## Build 
 buildtool: package.json
 
