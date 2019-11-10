@@ -50,4 +50,17 @@ With the ps scale we are telling Heroku to deploy 1 node of the web app.
 
 Finally with heroku open a browser will open with the url of the project.
 
+Here's an example of the deploy script:
+
+![deploy_script](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/deployScript.png)
+
+
+And here's a test of the /status route:
+
+![deploy_script](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/herokutest.png)
+
+You can access the heroku deployment by: 
+https://freeday-test1.herokuapp.com/status
+
+
 
