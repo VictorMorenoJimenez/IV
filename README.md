@@ -42,7 +42,11 @@ You can also run FreeDay in Docker containers!
 More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/docker.md)
 
 ## Deploy
+### Kubernetes Deployment on Azure
 For deploying our project we choosed Azure because it gives you 100$ of free credits if you have a proper student license. We choosed to deploy our app on a Kubernetes cluster, the full process and explanation [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/kubernetes.md)
+
+### Deployment on Azure VM
+Kubernetes it's a great solution but too complex and expensive for our project. So we decided to deploy our dockerized project to an Azure VM. You can see the whole process [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md)
 
 ## Build 
 buildtool: package.json
