@@ -18,7 +18,6 @@ before_script:
 before_install:
   - npm install .
 script:
-  - git checkout package-lock.json
   - npm test
 deploy:
   provider: azure_web_apps
