@@ -53,9 +53,7 @@ if( process.env.NODE_ENV != 'TEST_CI'){
   //production database
   dbhost = "mongodb://mongo:27017";
 }
-
-dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
-
+  dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
 
 // DB Connection
 mongoose.connect(dbhost, options);
