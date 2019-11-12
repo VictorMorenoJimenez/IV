@@ -14,7 +14,7 @@ addons:
   hosts:
     - mongodb
 before_script:
-  - mongo FreeDay --eval 'db.createUser({user:$MONGO_USER, pwd:$MONGO_PW, roles:["readWrite"]});'
+  - mongo FreeDay --eval 'db.createUser({user:"iv", pwd:"test", roles:["readWrite"]});'
 before_install:
   - npm install .
 script:
