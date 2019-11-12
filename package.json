@@ -9,6 +9,10 @@
     "stop": "pm2 stop --no-daemon app/app.js",
     "restart": "pm2 restart --no-daemon app/app.js"
   },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorMorenoJimenez/IV.git"
