@@ -19,4 +19,11 @@ before_install:
   - npm install .
 script:
   - npm test
+deploy:
+  provider: azure_web_apps
+  on: master
+  verbose: true
+  username: $AZURE_USER
+  password: $AZURE_PASSWORD
+  site: $AZURE_SITE
 
