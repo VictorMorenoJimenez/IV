@@ -18,6 +18,16 @@ Free day unique and with a great growing potential.
 ## How it works?
 The main goal of this project is that you can easily get the holidays from a city, country or state. If you want to know the vacations of a specific city, upon request to the API you will be informed of the holidays of both the city and the state to which the city belongs and to the country of the city. In this way with a single query you can get all the holidays that affect a city.
 
+## Milestone 4
+
+Despliegue: https://freedayivapp.azurewebsites.net
+
+## Extra
+
+En heroku tambien se puede acceder:
+
+https://freeday-iv-2.herokuapp.com/
+
 ## Install
 
 To install this project in your server and run it you just have to follow this [steps](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/install.md)
