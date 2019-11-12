@@ -13,6 +13,7 @@ function getStatus(req, res) {
         {
             "status": "OK",
             "test": "GET /country/France",
+            "modified": "v2",
             "result" :[
                 {
                     "_id": "5dc86f7a24f62c001b1b7773",
