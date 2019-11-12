@@ -61,6 +61,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 app.route("/status")
   .get(country.getStatus);
 
+app.get('/', function(req,res){
+  res.send("Welcome to FreeDay API. You can check our docs on /api-docs")
+});
 
 //Country
 
