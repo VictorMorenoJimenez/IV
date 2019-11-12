@@ -29,10 +29,17 @@ More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dock
 ### Kubernetes Deployment on Azure
 For deploying our project we choosed Azure because it gives you 100$ of free credits if you have a proper student license. We choosed to deploy our app on a Kubernetes cluster, the full process and explanation [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/kubernetes.md)
 
-### Deployment on Azure VM
+### Deployment on Azure from github with CI
+Azure it's a great solution for fast and stable deployments. For small projects you can also benefit from it's free tiers. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureCI.md) to follow the whole process.
+
+### Deployment on Heroku from github with CI
+Heroku offers a free way to easy and fast deploy your app to the cloud! With the heroku things are made easy, check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokuCI.md) to depoy on Heroku.
+
+
+### Deployment Docker containers to Azure
 Kubernetes it's a great solution but too complex and expensive for our project. So we decided to deploy our dockerized project to an Azure VM. You can see the whole process [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md)
 
-### Deployment on Heroku
+### Deployment Docker containers to Heroku
 The easiest way and the fastest method to deploy the project it's with Heroku.
 But it's not a real solution for real production projects. But a good way to test projects in the cloud. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md) how to deploy on Heroku!
 
