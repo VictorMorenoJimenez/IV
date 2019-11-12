@@ -23,7 +23,6 @@ deploy:
   provider: azure_web_apps
   on: master
   verbose: true
-  skip_cleanup: true
   username: $AZURE_USER
   password: $AZURE_PASSWORD
   site: $AZURE_SITE
