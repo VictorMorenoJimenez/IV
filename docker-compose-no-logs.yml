@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   nodeapp:
-    image: node_app
+    image: freedayregistry.azurecr.io/images/node_app
     ports:
       - "80:8080"
     depends_on:
