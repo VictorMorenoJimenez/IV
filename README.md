@@ -20,9 +20,15 @@ Free day unique and with a great growing potential.
 ## How it works?
 The main goal of this project is that you can easily get the holidays from a city, country or state. If you want to know the vacations of a specific city, upon request to the API you will be informed of the holidays of both the city and the state to which the city belongs and to the country of the city. In this way with a single query you can get all the holidays that affect a city.
 
-## Milestone 4
+## Milestone 5 
 
-Despliegue: https://freedayivapp.azurewebsites.net
+We are going to deploy our Dockerized app with a single container to Azure. First we are going to create the app and then build the pipelines in order to reload the container everytime a push is done on github. Learn how to do it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dockerciazure.md)
+
+Also we have the Heroku version with Docker, you can check how to deploy it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md).
+
+## Milestone 5 deploy url
+
+Despliegue: https://appfreeday.azurewebsites.net/status
 
 ## Extra
 
