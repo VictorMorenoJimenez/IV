@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/VictorMorenoJimenez/IV.svg?branch=master)](https://travis-ci.org/VictorMorenoJimenez/IV)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![CircleCI](https://circleci.com/gh/VictorMorenoJimenez/IV.svg?style=svg)](https://circleci.com/gh/VictorMorenoJimenez/IV)
+[![Build Status](https://dev.azure.com/OrgFreeday/freeday/_apis/build/status/appfreeday%20-%20CI?branchName=master)](https://dev.azure.com/OrgFreeday/freeday/_build/latest?definitionId=1&branchName=master)
 
 
 # Free day
