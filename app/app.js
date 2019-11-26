@@ -49,10 +49,6 @@ if( process.env.NODE_ENV != 'TEST_CI'){
   dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
 }
 
-
-dbhost = "mongodb+srv://conan:runescape12@cluster0-1t7ay.mongodb.net/test?retryWrites=true&w=majority"
-
-
 // DB Connection
 mongoose.connect(dbhost, options);
 let db = mongoose.connection;
@@ -62,7 +58,7 @@ app.route("/status")
   .get(country.getStatus);
 
 app.get('/', function(req,res){
-  res.send("Welcome to FreeDay API. You can check our docs on /api-docs")
+  res.send("Welcome to FreeDay API. You can check our docs on /api-docs. Azure funciona")
 });
 
 //Country
