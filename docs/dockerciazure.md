@@ -94,3 +94,5 @@ Here is the result of the last deploy. You can see the steps that he pipeline ma
 We made a small change on the '/' route to prove that the container it's re deployed when a change is made. And we can confirm that 'Azure funciona'.
 
 ![AzureFunciona](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/AzureFunciona.png)
+
+Now, everytime we change the code on github, a new build will be triggered, and a new version of our app deployed to the cloud!
