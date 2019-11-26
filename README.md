@@ -22,9 +22,11 @@ The main goal of this project is that you can easily get the holidays from a cit
 
 ## Milestone 5 
 
-We are going to deploy our Dockerized app with a single container to Azure. First we are going to create the app and then build the pipelines in order to reload the container everytime a push is done on github. Learn how to do it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dockerciazure.md)
+We are going to deploy our Dockerized app with a single container to Azure. First we are going to create the app and then build the pipelines in order to reload the container everytime a push is done on github. Learn how to do it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dockerciazure.md).
 
-Also we have the Heroku version with Docker, you can check how to deploy it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md).
+Also we have a script to deploy mongo and node_app Docker containers on Azure VM with a script. Just customize some variables and that's it! Learn how [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md). The deploy script is [this one](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md)
+
+Also we have the Heroku version with Docker, you can check how to deploy it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/deployDockerFull.sh).
 
 ## Milestone 5 deploy url
 
