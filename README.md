@@ -103,6 +103,8 @@ To set up a development envirorment and contribute you just have to follow the I
     * Added pm2 and proper build tool configuration, modified some endpoints 
 * 0.7
     * Deployment on Azure and Heroku    
+* 0.8
+    * Deployment on Azure and Heroku with Docker   
 
 ## Meta
 
