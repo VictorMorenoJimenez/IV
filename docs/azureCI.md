@@ -2,7 +2,7 @@
 Azure is one of the most used PaaS in the IT world. Together with AWS Azure dominates the cloud computing market. We have chosen Azure as a great alternative to AWS with a more affordable price. Also one of the great reasons that azure has been chosen is for its students pack, where you are offered 100 dollars of credit to try with their services. Now we will deploy freeday project to Azure, directly from github after passing the travis CI tests.
 
 ## Deploy
-Azure it's a bit more complex than Heroku so it will take a few more steps.
+Azure is a bit more complex than Heroku so it will take a few more steps.
 First we have to create the resources and the App plan service in order to create a web app.
 
 Well, first of all let's log in 
