@@ -26,7 +26,7 @@ We are going to deploy our Dockerized app with a single container to Azure. Firs
 
 Also we have a script to deploy mongo and node_app Docker containers on Azure VM with a script. Just customize some variables and that's it! Learn how [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md). The deploy script is [this one](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureVMdeploy.md)
 
-Also we have the Heroku version with Docker, you can check how to deploy it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/deployDockerFull.sh).
+Deploy with Heroku! Check how to deploy it [here](https://github.com/VictorMorenoJimenez/IV/blob/master/deployDockerFull.sh).
 
 ## Milestone 5 deploy url
 
@@ -50,7 +50,7 @@ More info [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/dock
 For deploying our project we choosed Azure because it gives you 100$ of free credits if you have a proper student license. We choosed to deploy our app on a Kubernetes cluster, the full process and explanation [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/kubernetes.md)
 
 ### Deployment on Azure from github with CI
-Azure it's a great solution for fast and stable deployments. For small projects you can also benefit from it's free tiers. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureCI.md) to follow the whole process.
+Azure is a great solution for fast and stable deployments. For small projects you can also benefit from it's free tiers. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/azureCI.md) to follow the whole process.
 
 ### Deployment on Heroku from github with CI
 Heroku offers a free way to easy and fast deploy your app to the cloud! With the heroku things are made easy, check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokuCI.md) to depoy on Heroku.
