@@ -6,8 +6,8 @@
   "scripts": {
     "start": "pm2 start app/app.js",
     "test": "mocha --exit",
-    "stop": "pm2 stop --no-daemon app/app.js",
-    "restart": "pm2 restart --no-daemon app/app.js"
+    "stop": "pm2 stop app/app.js",
+    "restart": "pm2 restart app/app.js"
   },
   "engines": {
     "node": ">=10.0.0",
