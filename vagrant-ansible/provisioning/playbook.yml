@@ -1,0 +1,47 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: Update packages
+      apt:
+        update_cache: yes
+    - name: Create directory to clone project
+      file:
+        path: "{{ clone_path }}"
+        state: directory
+
+  tasks:     
+    - name: Upgrade packages
+      apt:
+        name: "*"
+        state: latest
+
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+    
+    - name: Install git
+      apt:
+        name: git
+        state: present
+
+    - name: Clone repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ clone_path }}"
+
+    - name: Install pm2
+      npm:
+        name: pm2
+        global: yes
+        
+    - name: Start app
+      command: npm start
+      args:
+        chdir: "{{ clone_path }}"
