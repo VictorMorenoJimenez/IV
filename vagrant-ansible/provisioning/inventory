@@ -1,0 +1,1 @@
+freeday ansible_ssh_host=192.168.20.2 ansible_ssh_port=2222
