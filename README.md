@@ -35,6 +35,10 @@ Despliegue: https://appfreeday.azurewebsites.net/status
 
 https://freeday-iv-2.herokuapp.com/
 
+## Docker Hub
+Check our image on docker hub:
+https://hub.docker.com/r/conacious/freeday
+
 ## Install
 
 To install this project in your server and run it you just have to follow this [steps](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/install.md)
