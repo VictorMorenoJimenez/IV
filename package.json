@@ -8,7 +8,8 @@
     "test": "mocha --exit",
     "stop": "pm2 stop app/app.js",
     "restart": "pm2 restart app/app.js",
-    "vagrant": "cd vagrant-ansible && vagrant up"
+    "vagrant": "cd vagrant-ansible && vagrant up",
+    "provision": "cd vagrant-ansible && vagrant provision"
   },
   "engines": {
     "node": ">=10.0.0",
