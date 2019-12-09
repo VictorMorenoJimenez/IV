@@ -375,7 +375,7 @@ After that, if we want to make accessible our .box file to the rest of the world
 
 ![release2](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/releaseVagranBox2.png)
 
-Finally we can see the successfull message, now everyone can download our custom image!
+Finally we can see the successfull message, now everyone can download our custom image. We can access it using: Conacious/freeday
 
 ![successfullrelease](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/successfullRelease.png)
 
