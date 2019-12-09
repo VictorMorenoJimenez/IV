@@ -211,7 +211,129 @@ We did the benchmarks to Ubuntu 18.04, Ubuntu 19.04 and Debian 10 and here are t
 | Ubuntu 19.04  	|     2.591        	|       3860.15        	|
 
 
-As you can see there is no big difference, so we are going to use the image of Ubuntu 19.04 LTS. 
+As you can see there is no big difference, so we are going to use the image of Ubuntu 18.04 LTS. 
+
+## Vagrantfile 
+
+Once we have choosen our image we are going to create a Vagrantfile in order to help us to create VM's to host our project. All we need is a Vagrantfile, something like this:
+
+```Ruby
+  # -*- mode: ruby -*-
+  # vi: set ft=ruby :
+
+  Vagrant.configure("2") do |config|
+
+    config.vm.box = "ubuntu/bionic64"
+
+    config.vm.network "forwarded_port", guest: 8080, host: 8080
+
+    config.vm.network "private_network", ip: "192.168.20.2"
+
+    config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = 2
+    vb.name = "freeday"
+    end
+
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provisioning/playbook.yml"
+      #ansible.inventory_path = "provisioning/inventory"
+      ansible.groups = {
+        "localvm" => ["default"] 
+      }
+      ansible.verbose  = "vvv"
+    end
+    
+  end
+```
+
+Vagrantfile is a ruby file where we configure our VM.
+
+1. vm.box tells Vagrant what vagrant cloud image to use in the creation of the vm.
+2. vm.network "forwarded_port" this option will bind the VM port 8080 to the host port 8080, in order to access the app from host.
+3. vm.network "private_network" just sets an ip for the guest.
+4. vm.providor "virtualbox" we set some vars when the provider is virtualbox, such as RAM, CPU's or the virtual box name.
+5. vm.provision "ansible". When the provisioning software is ansible we tell Vagrant where is the playbook file and we define the groups that we will use on our Ansible playbooks.
+
+Once we have our Vagrantfile ready, all we need to do is run the command:
+```
+  vagrant up
+```
+
+Vagrant will deploy a new VM and provision it with Ansible. We will see a demo at the end of the doc.
 
 ## Provisioning Ansible
 
+Ansible is an open source automation platform. It is very simple to set up and it can help us to configure, manage and deploy our project in to a VM, either on local or in the cloud.
+
+Ansible needs a playbook.yml file where you tell him wich tasks to do. Our playbook.yml it's very simple:
+
+```yml
+---
+- hosts: localvm 
+  gather_facts: yes
+  become: yes
+
+  vars_files:
+    - vars/main.yml
+
+  pre_tasks:
+    - name: Update packages
+      apt:
+        update_cache: yes
+    - name: Create directory to clone project
+      file:
+        path: "{{ clone_path }}"
+        state: directory
+
+  tasks:     
+    - name: Upgrade packages
+      apt:
+        name: "*"
+        state: latest
+
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+    
+    - name: Install git
+      apt:
+        name: git
+        state: present
+
+    - name: Clone repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ clone_path }}"
+
+    - name: Npm install based on package.json 
+      npm:
+        path: "{{ clone_path }}" 
+        
+    - name: Install pm2
+      npm:
+        name: pm2
+        global: yes
+
+    - name: Start stop 
+      command: npm stop 
+      args:
+        chdir: "{{ clone_path }}"
+
+    - name: Start app
+      command: npm start
+      args:
+        chdir: "{{ clone_path }}"
+```
+
+1. Hosts, we tell Ansible in wich host group run the playbook.
+2. vars_files. We are using some vars like repo_url and clone_path defined on vars/main.yml
+3. pre_tasks. This tasks will run before tasks.
+4. tasks. This are the steps that Ansible will run in order to complete the playbook. There's no need to explain since the names are self explanatory.
+
+Vagrant will use this playbook to provision the created VM when the command vagrant up launches. Here is a demo:
+
+[![vagrantup](https://asciinema.org/a/XgQNg1RlFRMji9gAN6ZspIDRb.svg)](https://asciinema.org/a/XgQNg1RlFRMji9gAN6ZspIDRb)
+
+We can see how all the steps on the ansible playbook are run and then we can access from the host to the node app via localhost:8080 since we binded the port on de Vagrantfile.
