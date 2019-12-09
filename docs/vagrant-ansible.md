@@ -349,8 +349,35 @@ On the same directory as the Vagrantfile just run:
 ```bash
   vagrant package --output freeday.box
 ```
+![packimage](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/packfreedaybox.png)
 
 ## Upload Vagrant Box
+
+In order to upload the custom vagrant box we have to create and account on [vagrant](https://app.vagrantup.com/).
+
+Just create a new Vagrant Box and click on option add a provider to upload the freeday.box custom image that we just created.
+
+![addprovider](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/addprovider.png)
+
+Then we have to create a new version of the box.
+
+![addversion](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/createVersion.png)
+
+Now we can upload the packed image as a .box file.
+
+![uploadBox](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/uploladBox.png)
+
+After that, if we want to make accessible our .box file to the rest of the world, we have to release it.
+
+![release](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/releaseVagranBox.png)
+
+![release2](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/releaseVagranBox2.png)
+
+Finally we can see the successfull message, now everyone can download our custom image!
+
+![successfullrelease](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/images/successfullRelease.png)
+
+
 ## Bibliography
 
 1. [Ansible](https://www.vagrantup.com/docs/provisioning/ansible_intro.html)
