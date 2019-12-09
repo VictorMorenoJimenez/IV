@@ -45,11 +45,6 @@
         name: pm2
         global: yes
 
-    - name: Start stop 
-      command: npm stop 
-      args:
-        chdir: "{{ clone_path }}"
-
     - name: Start app
       command: npm start
       args:
