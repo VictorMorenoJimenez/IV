@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localvm 
   gather_facts: yes
   become: yes
 
@@ -36,11 +36,20 @@
         repo: "{{ repo_url }}"
         dest: "{{ clone_path }}"
 
+    - name: Npm install based on package.json 
+      npm:
+        path: "{{ clone_path }}" 
+        
     - name: Install pm2
       npm:
         name: pm2
         global: yes
-        
+
+    - name: Start stop 
+      command: npm stop 
+      args:
+        chdir: "{{ clone_path }}"
+
     - name: Start app
       command: npm start
       args:
