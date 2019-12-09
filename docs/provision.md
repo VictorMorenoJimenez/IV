@@ -337,3 +337,6 @@ Vagrant will use this playbook to provision the created VM when the command vagr
 [![vagrantup](https://asciinema.org/a/XgQNg1RlFRMji9gAN6ZspIDRb.svg)](https://asciinema.org/a/XgQNg1RlFRMji9gAN6ZspIDRb)
 
 We can see how all the steps on the ansible playbook are run and then we can access from the host to the node app via localhost:8080 since we binded the port on de Vagrantfile.
+
+
+[Bibliography](https://www.vagrantup.com/docs/provisioning/ansible_intro.html)
