@@ -44,6 +44,11 @@ Kubernetes it's a great solution but too complex and expensive for our project. 
 The easiest way and the fastest method to deploy the project it's with Heroku.
 But it's not a real solution for real production projects. But a good way to test projects in the cloud. Check [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/herokudeploy.md) how to deploy on Heroku!
 
+## Vagrant and Ansible
+We choosed vagrant for creating and managing the VM that will host our project. Ansible will be responsible for provisioning the necessary to the virtual machine. Check the whole process [here](https://github.com/VictorMorenoJimenez/IV/blob/master/docs/vagrant-ansible.md) from creating the VM to uploading to vagrant cloud through provisioning with ansible.
+
+provision: vagrant-ansible/provisioning/playbook.yml
+
 ## Build 
 buildtool: package.json
 
@@ -86,6 +91,8 @@ To set up a development envirorment and contribute you just have to follow the I
     * Deployment on Azure and Heroku    
 * 0.8
     * Deployment on Azure and Heroku with Docker   
+* 0.9
+    * Vagrant and Ansible added to project   
 
 ## Meta
 
