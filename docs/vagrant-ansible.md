@@ -266,7 +266,9 @@ Vagrant will deploy a new VM and provision it with Ansible. We will see a demo a
 
 Ansible is an open source automation platform. It is very simple to set up and it can help us to configure, manage and deploy our project in to a VM, either on local or in the cloud.
 
-Ansible needs a playbook.yml file where you tell him wich tasks to do. Our playbook.yml it's very simple:
+On official Ansible docs they suggest us a directory configuration for easy scalalable Ansible playbooks. We decided that there's no need to create a complex folder structure since we are going to deploy a simple app. So we just created a simple folder structure with a provisioning folder that holds our playbook and a vars folder with the vars the ansible needs.
+
+Ansible needs a playbook.yml file where you tell him wich tasks to do. Our playbook.yml
 
 ```yml
 ---
